@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-heading: 'Manrope', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Google Stitch Design Palette */
+  --color-primary: #006948;
+  --color-primary-container: #00855d;
+  --color-secondary: #0051d5;
+  --color-secondary-container: #316bf3;
+  --color-tertiary: #8d4b00;
+  --color-tertiary-container: #b15f00;
+  
+  --color-surface: #f8f9ff;
+  --color-surface-dim: #d1dbec;
+  --color-surface-bright: #f8f9ff;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #eef4ff;
+  --color-surface-container: #e5eeff;
+  --color-surface-container-high: #dfe9fa;
+  --color-surface-container-highest: #d9e3f4;
+  
+  --color-on-surface: #121c28;
+  --color-on-surface-variant: #3d4a42;
+  --color-outline: #6d7a72;
+  --color-outline-variant: #bccac0;
+  
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  
+  /* Additional scale helper colors */
+  --color-eco-50: #f0fdf4;
+  --color-eco-100: #dcfce7;
+  --color-eco-500: #22c55e;
+  --color-eco-600: #006948;
+  --color-eco-700: #005137;
+  
+  --color-gov-500: #3b82f6;
+  --color-gov-600: #0051d5;
+  
+  --color-amber-500: #f59e0b;
+  --color-amber-600: #8d4b00;
+}
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background-color: var(--color-surface);
+    color: var(--color-on-surface);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--color-on-surface);
+  }
+
+  ::selection {
+    background-color: var(--color-primary);
+    color: white;
+  }
+}
+
+@layer utilities {
+  /* Gradients based on Stitch Brand Colors */
+  .text-gradient-eco {
+    background: linear-gradient(135deg, #006948 0%, #0051d5 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #f59e0b, #8d4b00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-esg-gradient {
+    background: linear-gradient(90deg, #006948 0%, #0051d5 100%);
+  }
+
+  .bg-gradient-hero {
+    background: radial-gradient(circle at 80% 20%, #eef4ff 0%, #f8f9ff 100%);
+  }
+
+  .bg-gradient-section {
+    background: linear-gradient(180deg, #f8f9ff 0%, #eef4ff 100%);
+  }
+
+  /* Glassmorphism template from Stitch */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(229, 231, 235, 0.5);
+  }
+
+  .glass-card-dark {
+    background: rgba(18, 28, 40, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  /* Subtle glow effects */
+  .glow-eco {
+    box-shadow: 0 10px 30px -10px rgba(0, 105, 72, 0.15), 0 20px 40px -20px rgba(0, 105, 72, 0.1);
+  }
+
+  .glow-blue {
+    box-shadow: 0 10px 30px -10px rgba(0, 81, 213, 0.15), 0 20px 40px -20px rgba(0, 81, 213, 0.1);
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-float-delayed {
+    animation: float 6s ease-in-out 2s infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulseGlow 3s ease-in-out infinite;
+  }
+
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 15px rgba(0, 105, 72, 0.1); }
+  50% { box-shadow: 0 0 30px rgba(0, 105, 72, 0.25); }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #bccac0;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #006948;
+}

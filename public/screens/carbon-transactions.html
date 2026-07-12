@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EcoSphere | Carbon Transactions</title>
+<!-- Tailwind & Google Fonts -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#f8f9ff",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-secondary-fixed-variant": "#003ea8",
+                        "tertiary-fixed-dim": "#ffb77d",
+                        "outline": "#6d7a72",
+                        "tertiary": "#8d4b00",
+                        "on-surface": "#121c28",
+                        "primary-fixed": "#85f8c4",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed-dim": "#68dba9",
+                        "secondary": "#0051d5",
+                        "on-surface-variant": "#3d4a42",
+                        "surface-container": "#e5eeff",
+                        "surface-container-highest": "#d9e3f4",
+                        "secondary-container": "#316bf3",
+                        "on-tertiary-fixed-variant": "#6e3900",
+                        "on-secondary-fixed": "#00174b",
+                        "surface": "#f8f9ff",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#fefcff",
+                        "on-primary-fixed-variant": "#005137",
+                        "primary-container": "#00855d",
+                        "on-error": "#ffffff",
+                        "surface-container-high": "#dfe9fa",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-surface": "#27313e",
+                        "tertiary-fixed": "#ffdcc3",
+                        "surface-variant": "#d9e3f4",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#dbe1ff",
+                        "surface-tint": "#006c4a",
+                        "surface-bright": "#f8f9ff",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#d1dbec",
+                        "error-container": "#ffdad6",
+                        "outline-variant": "#bccac0",
+                        "secondary-fixed-dim": "#b4c5ff",
+                        "primary": "#006948",
+                        "on-background": "#121c28",
+                        "on-tertiary-container": "#fffbff",
+                        "inverse-primary": "#68dba9",
+                        "on-primary-container": "#f5fff7",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#eef4ff",
+                        "on-tertiary-fixed": "#2f1500",
+                        "tertiary-container": "#b15f00",
+                        "on-primary-fixed": "#002114"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "container-max": "1440px",
+                        "baseline": "4px",
+                        "margin-desktop": "32px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Manrope"],
+                        "headline-sm": ["Manrope"],
+                        "body-sm": ["Inter"],
+                        "headline-lg-mobile": ["Manrope"],
+                        "headline-md": ["Manrope"],
+                        "label-md": ["JetBrains Mono"],
+                        "display-lg": ["Manrope"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9ff;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .transaction-card:hover {
+            border-color: #006948;
+            transform: translateY(-2px);
+            transition: all 0.2s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- Sidebar Navigation -->
+<aside class="w-[280px] h-screen fixed left-0 top-0 border-r border-outline-variant bg-background flex flex-col py-6 px-4 z-50">
+<div class="mb-10 px-2 flex items-center gap-3">
+<div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">eco</span>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-extrabold text-primary">EcoSphere</h1>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">ESG Management</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<!-- Active Tab: Environmental -->
+<a class="flex items-center gap-3 px-4 py-3 text-primary font-bold border-r-4 border-primary bg-primary-container/10 transition-transform scale-[0.98]" href="#">
+<span class="material-symbols-outlined">eco</span>
+<span class="font-label-md text-label-md">Environmental</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium hover:bg-surface-container-high hover:text-primary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="font-label-md text-label-md">Social</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium hover:bg-surface-container-high hover:text-primary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">gavel</span>
+<span class="font-label-md text-label-md">Governance</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium hover:bg-surface-container-high hover:text-primary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">military_tech</span>
+<span class="font-label-md text-label-md">Challenges</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium hover:bg-surface-container-high hover:text-primary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">bar_chart</span>
+<span class="font-label-md text-label-md">Reports</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium hover:bg-surface-container-high hover:text-primary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</nav>
+<div class="mt-auto border-t border-outline-variant pt-6 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-label-md text-label-md">Help Center</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-error font-medium hover:bg-error-container/20 transition-colors" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-md text-label-md">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Header / Top Bar -->
+<header class="h-16 sticky top-0 z-40 bg-surface-container-lowest border-b border-outline-variant ml-[280px] w-[calc(100%-280px)] flex items-center justify-between px-gutter">
+<div class="flex items-center bg-surface-container-low rounded-full px-4 py-2 w-96">
+<span class="material-symbols-outlined text-outline">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-sm font-body-sm w-full placeholder-on-surface-variant/50 ml-2" placeholder="Search transactions..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="flex items-center gap-3 pl-2 border-l border-outline-variant">
+<div class="text-right hidden sm:block">
+<p class="font-label-md text-label-md font-bold">Alex Sterling</p>
+<p class="text-[10px] text-on-surface-variant uppercase font-bold">Compliance Officer</p>
+</div>
+<img class="w-9 h-9 rounded-full object-cover ring-2 ring-primary-container" data-alt="A professional headshot of a corporate executive in a modern, light-filled office environment. The person has a friendly, confident expression, wearing professional attire. The background is softly blurred, showing sleek architectural details of a high-end corporate building with neutral tones and soft natural lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvU4x_S9zvC1AabHqhqn7tj4isxLOUPnZDXI5JYSIoB7ayP8GZsWM7WD_FWxRNnJt3APt2LNI8vI5rC9v7_I5LGzQwVSUtQLuOH4VbQXdFsIuJ2m6uOV8GfzV1ZwwpT0_L4SEXNkvxlhaFoEm7NBj8A4DisU50DwIJg-wCOgYyguYhc47XfEgyomwb4m2tQDouyVu1UNSMM7WZf-OWGLxexrPtDWPOPely5VBTeRfJ--q3BBLy9ccJhKUqH6Zk8oMELb9vHifr8nAg"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-[280px] p-gutter min-h-screen">
+<!-- Page Title & Primary Action -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-4">
+<div>
+<nav class="flex items-center gap-2 mb-2 text-on-surface-variant font-label-md text-[10px] uppercase tracking-widest">
+<span>Environmental</span>
+<span class="material-symbols-outlined text-[12px]">chevron_right</span>
+<span class="text-primary font-bold">Carbon Transactions</span>
+</nav>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Carbon Transactions</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mt-1">
+                    Manage calculated emissions stored from ERP operations. Track individual transactions to monitor environmental impact across departments.
+                </p>
+</div>
+<button class="bg-primary text-on-primary px-6 py-3 rounded-lg flex items-center gap-2 font-bold hover:shadow-lg transition-all active:scale-95">
+<span class="material-symbols-outlined">add</span>
+<span>Add Transaction</span>
+</button>
+</div>
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Filters Sidebar/Widget Cluster -->
+<div class="col-span-12 lg:col-span-3 space-y-6">
+<!-- Configuration Toggle Sidebar -->
+<div class="bg-white border border-outline-variant p-6 rounded-xl">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<h3 class="font-headline-sm text-[16px] font-bold">System Rules</h3>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<div class="pr-4">
+<p class="font-label-md text-label-md font-bold">Auto Emission Calculation</p>
+<p class="text-[11px] text-on-surface-variant">Link with Manufacturing/Fleet</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="flex items-center justify-between">
+<div class="pr-4">
+<p class="font-label-md text-label-md font-bold">Evidence Required</p>
+<p class="text-[11px] text-on-surface-variant">Mandatory proof attachment</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</div>
+<!-- Transaction Filters -->
+<div class="bg-white border border-outline-variant p-6 rounded-xl">
+<h3 class="font-label-md text-label-md font-extrabold uppercase text-on-surface-variant tracking-widest mb-4">Quick Filters</h3>
+<div class="space-y-5">
+<div>
+<label class="font-label-md text-label-md font-bold block mb-2">Departments</label>
+<select class="w-full bg-surface-container-lowest border-outline-variant rounded-lg text-body-sm font-body-sm focus:ring-primary focus:border-primary">
+<option>All Departments</option>
+<option>Manufacturing</option>
+<option>Logistics &amp; Fleet</option>
+<option>Corporate HQ</option>
+<option>Procurement</option>
+</select>
+</div>
+<div>
+<label class="font-label-md text-label-md font-bold block mb-2">Emission Factor</label>
+<select class="w-full bg-surface-container-lowest border-outline-variant rounded-lg text-body-sm font-body-sm focus:ring-primary focus:border-primary">
+<option>All Factors</option>
+<option>Electricity (Grid)</option>
+<option>Diesel (Transportation)</option>
+<option>Natural Gas (Boilers)</option>
+<option>Flight (Short Haul)</option>
+</select>
+</div>
+<div>
+<label class="font-label-md text-label-md font-bold block mb-2">Source Category</label>
+<div class="space-y-2">
+<label class="flex items-center gap-2 cursor-pointer group">
+<input checked="" class="rounded text-primary focus:ring-primary border-outline-variant" type="checkbox"/>
+<span class="text-body-sm font-body-sm text-on-surface group-hover:text-primary">Manufacturing</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer group">
+<input checked="" class="rounded text-primary focus:ring-primary border-outline-variant" type="checkbox"/>
+<span class="text-body-sm font-body-sm text-on-surface group-hover:text-primary">Purchase &amp; Logistics</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer group">
+<input class="rounded text-primary focus:ring-primary border-outline-variant" type="checkbox"/>
+<span class="text-body-sm font-body-sm text-on-surface group-hover:text-primary">Operational Expenses</span>
+</label>
+</div>
+</div>
+</div>
+</div>
+<!-- Score Progress Card -->
+<div class="bg-gradient-to-br from-primary to-primary-container p-6 rounded-xl text-on-primary">
+<p class="font-label-md text-label-md opacity-80 mb-1">EcoSphere Progress</p>
+<h4 class="font-headline-sm text-headline-sm font-bold mb-4">Environmental Score</h4>
+<div class="relative h-4 bg-white/20 rounded-full overflow-hidden mb-2">
+<div class="absolute top-0 left-0 h-full bg-white w-[74%] rounded-full shadow-[0_0_10px_rgba(255,255,255,0.5)]"></div>
+</div>
+<div class="flex justify-between font-label-md text-label-md">
+<span>740 / 1000 XP</span>
+<span class="font-bold">Lv. 12 Auditor</span>
+</div>
+</div>
+</div>
+<!-- Transaction List Canvas -->
+<div class="col-span-12 lg:col-span-9 space-y-4">
+<!-- Table Headers (Custom Pattern) -->
+<div class="grid grid-cols-12 px-6 py-2 bg-surface-container text-on-surface-variant font-label-md text-[11px] uppercase tracking-tighter font-bold rounded-lg mb-2">
+<div class="col-span-4">Transaction Details &amp; Model</div>
+<div class="col-span-3">Purpose &amp; Calculation</div>
+<div class="col-span-2 text-center">Emission Factor</div>
+<div class="col-span-2 text-right">Value (tCO2e)</div>
+<div class="col-span-1"></div>
+</div>
+<!-- Transaction Row 1 -->
+<div class="transaction-card grid grid-cols-12 items-center bg-white border border-outline-variant p-6 rounded-xl">
+<div class="col-span-4 flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container-high rounded-lg flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">factory</span>
+</div>
+<div>
+<p class="font-body-md font-bold">Line 4 Steel Production</p>
+<span class="font-label-md text-[10px] text-primary px-2 py-0.5 bg-primary-container/20 rounded inline-block uppercase">Model: Manufacturing</span>
+</div>
+</div>
+<div class="col-span-3">
+<p class="text-body-sm font-body-sm text-on-surface-variant">Automated ERP Sync: Purchase Order #8821</p>
+<p class="text-[11px] text-outline italic">Scope 1 - Direct Emissions</p>
+</div>
+<div class="col-span-2 text-center">
+<div class="inline-flex flex-col items-center">
+<span class="material-symbols-outlined text-on-surface-variant text-lg">local_fire_department</span>
+<span class="text-body-sm font-body-sm font-bold">Coal (Bitum)</span>
+</div>
+</div>
+<div class="col-span-2 text-right">
+<p class="font-headline-sm text-headline-sm font-bold text-on-surface">124.52</p>
+<p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-widest">Metric Tons</p>
+</div>
+<div class="col-span-1 text-right">
+<button class="p-2 hover:bg-surface-container rounded-full text-outline-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Transaction Row 2 -->
+<div class="transaction-card grid grid-cols-12 items-center bg-white border border-outline-variant p-6 rounded-xl">
+<div class="col-span-4 flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container-high rounded-lg flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+</div>
+<div>
+<p class="font-body-md font-bold">Regional Logistics (EU East)</p>
+<span class="font-label-md text-[10px] text-secondary px-2 py-0.5 bg-secondary-container/20 rounded inline-block uppercase">Model: Fleet Operations</span>
+</div>
+</div>
+<div class="col-span-3">
+<p class="text-body-sm font-body-sm text-on-surface-variant">Monthly Fleet Fuel Consumption Audit</p>
+<p class="text-[11px] text-outline italic">Scope 1 - Mobile Combustion</p>
+</div>
+<div class="col-span-2 text-center">
+<div class="inline-flex flex-col items-center">
+<span class="material-symbols-outlined text-on-surface-variant text-lg">oil_barrel</span>
+<span class="text-body-sm font-body-sm font-bold">Diesel</span>
+</div>
+</div>
+<div class="col-span-2 text-right">
+<p class="font-headline-sm text-headline-sm font-bold text-on-surface">42.18</p>
+<p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-widest">Metric Tons</p>
+</div>
+<div class="col-span-1 text-right">
+<button class="p-2 hover:bg-surface-container rounded-full text-outline-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Transaction Row 3 -->
+<div class="transaction-card grid grid-cols-12 items-center bg-white border border-outline-variant p-6 rounded-xl">
+<div class="col-span-4 flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container-high rounded-lg flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">electric_bolt</span>
+</div>
+<div>
+<p class="font-body-md font-bold">HQ Office Facilities</p>
+<span class="font-label-md text-[10px] text-tertiary px-2 py-0.5 bg-tertiary-container/20 rounded inline-block uppercase">Model: Expenses</span>
+</div>
+</div>
+<div class="col-span-3">
+<p class="text-body-sm font-body-sm text-on-surface-variant">Manual Invoice Upload: Utility-992</p>
+<p class="text-[11px] text-outline italic">Scope 2 - Purchased Electricity</p>
+</div>
+<div class="col-span-2 text-center">
+<div class="inline-flex flex-col items-center">
+<span class="material-symbols-outlined text-on-surface-variant text-lg">grid_view</span>
+<span class="text-body-sm font-body-sm font-bold">Renewable Mix</span>
+</div>
+</div>
+<div class="col-span-2 text-right">
+<p class="font-headline-sm text-headline-sm font-bold text-on-surface">12.05</p>
+<p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-widest">Metric Tons</p>
+</div>
+<div class="col-span-1 text-right">
+<button class="p-2 hover:bg-surface-container rounded-full text-outline-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Transaction Row 4 -->
+<div class="transaction-card grid grid-cols-12 items-center bg-white border border-outline-variant p-6 rounded-xl">
+<div class="col-span-4 flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container-high rounded-lg flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">shopping_cart</span>
+</div>
+<div>
+<p class="font-body-md font-bold">Aluminum Raw Material Sourcing</p>
+<span class="font-label-md text-[10px] text-primary px-2 py-0.5 bg-primary-container/20 rounded inline-block uppercase">Model: Purchase</span>
+</div>
+</div>
+<div class="col-span-3">
+<p class="text-body-sm font-body-sm text-on-surface-variant">Estimated emissions from vendor disclosure</p>
+<p class="text-[11px] text-outline italic">Scope 3 - Supply Chain</p>
+</div>
+<div class="col-span-2 text-center">
+<div class="inline-flex flex-col items-center">
+<span class="material-symbols-outlined text-on-surface-variant text-lg">inventory_2</span>
+<span class="text-body-sm font-body-sm font-bold">Metals (Avg)</span>
+</div>
+</div>
+<div class="col-span-2 text-right">
+<p class="font-headline-sm text-headline-sm font-bold text-on-surface">315.90</p>
+<p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-widest">Metric Tons</p>
+</div>
+<div class="col-span-1 text-right">
+<button class="p-2 hover:bg-surface-container rounded-full text-outline-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Loading State / More Transactions -->
+<div class="flex justify-center pt-6">
+<button class="font-label-md text-label-md font-bold text-primary border border-primary px-8 py-2 rounded-full hover:bg-primary-container hover:text-white transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">refresh</span>
+                        Load More Transactions
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Micro-interaction Scripts -->
+<script>
+        // Simple toggle state simulation for rule switches
+        document.querySelectorAll('input[type="checkbox"]').forEach(toggle => {
+            toggle.addEventListener('change', (e) => {
+                const label = e.target.closest('div').querySelector('.font-bold');
+                if (e.target.checked) {
+                    console.log(`Setting Enabled: ${label?.textContent}`);
+                } else {
+                    console.log(`Setting Disabled: ${label?.textContent}`);
+                }
+            });
+        });
+
+        // Search highlight effect
+        const searchInput = document.querySelector('input[type="text"]');
+        searchInput.addEventListener('focus', () => {
+            searchInput.parentElement.classList.add('ring-2', 'ring-primary/20', 'border-primary');
+        });
+        searchInput.addEventListener('blur', () => {
+            searchInput.parentElement.classList.remove('ring-2', 'ring-primary/20', 'border-primary');
+        });
+    </script>
+
+<script>
+  // Add listeners to sidebar links inside the iframe to navigate parent wrapper tabs
+  document.querySelectorAll('aside nav a').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const textSpan = link.querySelector('span:last-child');
+      if (textSpan) {
+        const text = textSpan.textContent.trim().toLowerCase();
+        console.log("Iframe navigating parent to:", text);
+        window.parent.postMessage({ type: 'NAVIGATE', target: text }, '*');
+      }
+    });
+  });
+
+  // Intercept logo click
+  const logoDiv = document.querySelector('aside div.flex.items-center.gap-3');
+  if (logoDiv) {
+    logoDiv.style.cursor = 'pointer';
+    logoDiv.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.parent.postMessage({ type: 'NAVIGATE', target: 'environmental' }, '*');
+    });
+  }
+
+  // Intercept buttons to show native alert mockups
+  document.querySelectorAll('button').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const text = btn.textContent.trim().toLowerCase();
+      if (text.includes('export') || text.includes('download')) {
+        e.preventDefault();
+        alert('Exporting audit trail for SEBI BRSR compliance... File download started.');
+      } else if (text.includes('add') || text.includes('create')) {
+        e.preventDefault();
+        window.parent.postMessage({ type: 'ACTION', action: 'add-transaction' }, '*');
+      } else if (text.includes('boost') || text.includes('engagement')) {
+        e.preventDefault();
+        alert('Activating sustainability campaign. Employee email reminders dispatched!');
+      }
+    });
+  });
+</script>
+</body></html>

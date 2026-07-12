@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sustainability Challenges | EcoSphere</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@600;700;800&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary": "#0051d5",
+            "on-surface": "#121c28",
+            "surface-container-high": "#dfe9fa",
+            "outline-variant": "#bccac0",
+            "error": "#ba1a1a",
+            "tertiary": "#8d4b00",
+            "tertiary-fixed": "#ffdcc3",
+            "on-secondary-fixed-variant": "#003ea8",
+            "inverse-on-surface": "#eaf1ff",
+            "surface-dim": "#d1dbec",
+            "surface-container": "#e5eeff",
+            "primary-fixed-dim": "#68dba9",
+            "secondary-fixed-dim": "#b4c5ff",
+            "on-primary": "#ffffff",
+            "on-error": "#ffffff",
+            "secondary-fixed": "#dbe1ff",
+            "on-surface-variant": "#3d4a42",
+            "on-error-container": "#93000a",
+            "surface-bright": "#f8f9ff",
+            "primary-fixed": "#85f8c4",
+            "tertiary-container": "#b15f00",
+            "on-secondary-fixed": "#00174b",
+            "on-secondary": "#ffffff",
+            "on-background": "#121c28",
+            "surface-container-lowest": "#ffffff",
+            "secondary-container": "#316bf3",
+            "primary-container": "#00855d",
+            "on-primary-container": "#f5fff7",
+            "surface": "#f8f9ff",
+            "error-container": "#ffdad6",
+            "outline": "#6d7a72",
+            "on-tertiary-fixed": "#2f1500",
+            "on-tertiary-fixed-variant": "#6e3900",
+            "on-tertiary": "#ffffff",
+            "on-secondary-container": "#fefcff",
+            "on-primary-fixed": "#002114",
+            "tertiary-fixed-dim": "#ffb77d",
+            "surface-container-highest": "#d9e3f4",
+            "surface-container-low": "#eef4ff",
+            "background": "#f8f9ff",
+            "on-tertiary-container": "#fffbff",
+            "on-primary-fixed-variant": "#005137",
+            "surface-tint": "#006c4a",
+            "primary": "#006948",
+            "inverse-primary": "#68dba9",
+            "surface-variant": "#d9e3f4",
+            "inverse-surface": "#27313e"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "baseline": "4px",
+            "margin-desktop": "32px",
+            "container-max": "1440px",
+            "margin-mobile": "16px",
+            "gutter": "24px"
+          },
+          "fontFamily": {
+            "headline-lg-mobile": ["Manrope"],
+            "body-lg": ["Inter"],
+            "headline-sm": ["Manrope"],
+            "headline-lg": ["Manrope"],
+            "headline-md": ["Manrope"],
+            "display-lg": ["Manrope"],
+            "label-md": ["JetBrains Mono"],
+            "body-md": ["Inter"],
+            "body-sm": ["Inter"]
+          },
+          "fontSize": {
+            "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+            "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+            "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+            "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+            "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+            "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+            "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+            "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    .glass-card { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); }
+    .scrollbar-hide::-webkit-scrollbar { display: none; }
+    .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="bg-background text-on-surface overflow-x-hidden">
+<!-- SideNavBar Anchor -->
+<aside class="w-[280px] h-screen fixed left-0 top-0 border-r border-outline-variant bg-background flex flex-col py-6 px-4 z-50">
+<div class="flex items-center gap-3 px-2 mb-10">
+<div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">eco</span>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-extrabold text-primary">EcoSphere</h1>
+<p class="font-label-md text-[10px] tracking-widest text-outline uppercase">ESG Management</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg text-on-surface-variant font-medium hover:bg-surface-container-high transition-colors group" href="#">
+<span class="material-symbols-outlined text-xl group-hover:text-primary">eco</span>
+<span class="font-label-md text-label-md">Environmental</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg text-on-surface-variant font-medium hover:bg-surface-container-high transition-colors group" href="#">
+<span class="material-symbols-outlined text-xl group-hover:text-primary">groups</span>
+<span class="font-label-md text-label-md">Social</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg text-on-surface-variant font-medium hover:bg-surface-container-high transition-colors group" href="#">
+<span class="material-symbols-outlined text-xl group-hover:text-primary">gavel</span>
+<span class="font-label-md text-label-md">Governance</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg text-primary font-bold border-r-4 border-primary bg-primary-container/10 transition-colors" href="#">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+<span class="font-label-md text-label-md">Challenges</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg text-on-surface-variant font-medium hover:bg-surface-container-high transition-colors group" href="#">
+<span class="material-symbols-outlined text-xl group-hover:text-primary">bar_chart</span>
+<span class="font-label-md text-label-md">Reports</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg text-on-surface-variant font-medium hover:bg-surface-container-high transition-colors group" href="#">
+<span class="material-symbols-outlined text-xl group-hover:text-primary">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-outline-variant">
+<button class="w-full bg-primary text-on-primary py-3 rounded-xl font-bold flex items-center justify-center gap-2 mb-4 hover:opacity-90 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-xl">add</span>
+<span>Add Transaction</span>
+</button>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant font-medium hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">help</span>
+<span class="font-label-md text-label-md">Help Center</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant font-medium hover:text-error transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">logout</span>
+<span class="font-label-md text-label-md">Logout</span>
+</a>
+</div>
+</aside>
+<!-- TopAppBar Anchor -->
+<header class="h-16 sticky top-0 z-40 bg-surface-container-lowest flex items-center justify-between px-gutter ml-[280px] w-[calc(100%-280px)] border-b border-outline-variant">
+<div class="flex items-center gap-4 w-1/3">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-xl">search</span>
+<input class="w-full bg-surface-container rounded-full border-none pl-10 pr-4 py-2 text-body-sm focus:ring-2 focus:ring-primary/20 transition-shadow" placeholder="Search challenges or rewards..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="relative p-2 text-on-surface-variant hover:text-primary transition-colors opacity-80 active:opacity-100">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<div class="flex items-center gap-3 pl-4 border-l border-outline-variant group cursor-pointer">
+<div class="text-right">
+<p class="font-headline-sm text-sm font-bold text-on-surface">Alex Rivera</p>
+<p class="font-label-md text-[10px] text-outline">Sr. ESG Specialist</p>
+</div>
+<img class="w-10 h-10 rounded-full border-2 border-primary/20 group-hover:border-primary transition-all object-cover" data-alt="A professional headshot of a Hispanic man in his 30s with a friendly expression, wearing a minimalist business casual outfit. The lighting is soft and studio-quality with a clean, neutral gray background. The overall style is modern corporate, matching the clean and professional EcoSphere platform aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5HLL1PcxqWut6Df_3aqxS0L3Ckrx6H1oS7LAR_9uYAlu37Yt5_FDqH6dYFvF2NQd6MtAZEILh612FFb0yBSPPEifh-GjQWcX1GZ2UKLreoYa0JN1zGIQfd01jFZsZNT0HHWARKbicnXvBMz7NHpKIAh_jjCvla7KpNLcga3TjyH_0rfU6RfBa4-F7NqoEw0Lc-czOLbNbjPGr9JmOTZ4Lw17_sDS0-0a71CPkz7GK-5LXULTp8WduH7S98HFDK5f9WjtWdoBsTP9b"/>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="ml-[280px] p-gutter min-h-[calc(100vh-64px)]">
+<div class="max-w-[1440px] mx-auto">
+<!-- Welcome Header & Stats Row -->
+<section class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Sustainability Challenges</h2>
+<p class="text-on-surface-variant max-w-xl font-body-md">Drive impact through collective action. Complete challenges, earn XP, and contribute to EcoSphere's global sustainability goals.</p>
+</div>
+<div class="flex gap-4">
+<div class="bg-white border border-outline-variant p-4 rounded-xl flex items-center gap-4 min-w-[180px]">
+<div class="w-12 h-12 rounded-full bg-tertiary-fixed flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">stars</span>
+</div>
+<div>
+<p class="font-label-md text-outline uppercase tracking-tighter">Current Rank</p>
+<p class="font-headline-md text-xl font-bold">Gold Tier</p>
+</div>
+</div>
+<div class="bg-white border border-outline-variant p-4 rounded-xl flex items-center gap-4 min-w-[180px]">
+<div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">trophy</span>
+</div>
+<div>
+<p class="font-label-md text-outline uppercase tracking-tighter">Global XP</p>
+<p class="font-headline-md text-xl font-bold">14,250</p>
+</div>
+</div>
+</div>
+</section>
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Left: Active Challenges (8 Cols) -->
+<div class="col-span-12 lg:col-span-8 space-y-gutter">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">bolt</span>
+              Active Challenges
+            </h3>
+<button class="text-primary font-bold font-label-md hover:underline flex items-center gap-1">
+              View All <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<!-- Bento Grid for Challenges -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Card 1: Carbon-Neutral Commute -->
+<div class="bg-white border border-outline-variant rounded-xl p-6 hover:shadow-lg transition-all group flex flex-col h-full">
+<div class="flex justify-between items-start mb-4">
+<div class="w-12 h-12 rounded-xl bg-secondary-fixed flex items-center justify-center text-secondary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-2xl">directions_bike</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="px-2 py-1 bg-tertiary-fixed text-tertiary rounded font-label-md text-[10px] mb-1">HARD</span>
+<span class="mono text-primary font-bold">+500 XP</span>
+</div>
+</div>
+<h4 class="font-headline-sm text-lg mb-2">Carbon-Neutral Commute</h4>
+<p class="text-on-surface-variant font-body-sm mb-6 flex-1">Use public transit, cycle, or walk to the office for 10 consecutive days to reduce your carbon footprint.</p>
+<div class="space-y-2">
+<div class="flex justify-between items-center text-label-md">
+<span class="text-outline">Progress: 7/10 Days</span>
+<span class="font-bold text-on-surface">70%</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary transition-all duration-1000" style="width: 70%;"></div>
+</div>
+</div>
+</div>
+<!-- Card 2: Zero Waste Week -->
+<div class="bg-white border border-outline-variant rounded-xl p-6 hover:shadow-lg transition-all group flex flex-col h-full">
+<div class="flex justify-between items-start mb-4">
+<div class="w-12 h-12 rounded-xl bg-primary-fixed flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-2xl">recycling</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="px-2 py-1 bg-surface-container-high text-on-surface-variant rounded font-label-md text-[10px] mb-1">MEDIUM</span>
+<span class="mono text-primary font-bold">+350 XP</span>
+</div>
+</div>
+<h4 class="font-headline-sm text-lg mb-2">Zero Waste Week</h4>
+<p class="text-on-surface-variant font-body-sm mb-6 flex-1">Minimize single-use plastics and log your recycled waste. Track daily output for 7 days.</p>
+<div class="space-y-2">
+<div class="flex justify-between items-center text-label-md">
+<span class="text-outline">Progress: 2/7 Days</span>
+<span class="font-bold text-on-surface">28%</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary transition-all duration-1000" style="width: 28%;"></div>
+</div>
+</div>
+</div>
+<!-- Card 3: Energy Saver Pro -->
+<div class="bg-white border border-outline-variant rounded-xl p-6 hover:shadow-lg transition-all group flex flex-col h-full">
+<div class="flex justify-between items-start mb-4">
+<div class="w-12 h-12 rounded-xl bg-tertiary-fixed flex items-center justify-center text-tertiary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-2xl">lightbulb</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="px-2 py-1 bg-surface-container-high text-on-surface-variant rounded font-label-md text-[10px] mb-1">EASY</span>
+<span class="mono text-primary font-bold">+150 XP</span>
+</div>
+</div>
+<h4 class="font-headline-sm text-lg mb-2">Energy Saver Pro</h4>
+<p class="text-on-surface-variant font-body-sm mb-6 flex-1">Turn off all non-essential lighting and equipment before leaving your workstation for 5 days.</p>
+<div class="space-y-2">
+<div class="flex justify-between items-center text-label-md">
+<span class="text-outline">Progress: 4/5 Days</span>
+<span class="font-bold text-on-surface">80%</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary transition-all duration-1000" style="width: 80%;"></div>
+</div>
+</div>
+</div>
+<!-- Card 4: Master Configurator (Ad) -->
+<div class="relative bg-inverse-surface text-inverse-on-surface rounded-xl p-6 overflow-hidden group flex flex-col h-full">
+<div class="absolute -right-10 -bottom-10 opacity-10">
+<span class="material-symbols-outlined text-[160px]">diversity_1</span>
+</div>
+<h4 class="font-headline-sm text-lg mb-2 relative z-10">Corporate Tree Drive</h4>
+<p class="text-surface-variant font-body-sm mb-6 flex-1 relative z-10">Join the upcoming weekend tree planting event. Every hour counts as 1,000 corporate impact XP.</p>
+<button class="relative z-10 w-full bg-primary text-on-primary py-2 rounded font-bold hover:bg-primary-container transition-colors">Join Event</button>
+</div>
+</div>
+<!-- Rewards Shop -->
+<div class="mt-12 space-y-6">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">shopping_bag</span>
+                Rewards Shop
+              </h3>
+</div>
+<div class="bg-surface-container-low rounded-2xl p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-white p-4 rounded-xl border border-outline-variant hover:border-primary transition-colors flex flex-col items-center text-center">
+<div class="w-20 h-20 bg-primary-fixed-dim rounded-full mb-4 flex items-center justify-center text-on-primary-fixed">
+<span class="material-symbols-outlined text-4xl">coffee</span>
+</div>
+<h5 class="font-bold mb-1">Reusable Mug Set</h5>
+<p class="text-outline font-label-md mb-3">Eco-friendly ceramic mug</p>
+<div class="mt-auto pt-2 w-full">
+<button class="w-full bg-surface-container-highest py-2 rounded font-bold text-primary hover:bg-primary hover:text-on-primary transition-colors">1,500 XP</button>
+</div>
+</div>
+<div class="bg-white p-4 rounded-xl border border-outline-variant hover:border-primary transition-colors flex flex-col items-center text-center">
+<div class="w-20 h-20 bg-secondary-fixed-dim rounded-full mb-4 flex items-center justify-center text-on-secondary-fixed">
+<span class="material-symbols-outlined text-4xl">confirmation_number</span>
+</div>
+<h5 class="font-bold mb-1">Half-Day Friday</h5>
+<p class="text-outline font-label-md mb-3">Redeem for early leave</p>
+<div class="mt-auto pt-2 w-full">
+<button class="w-full bg-surface-container-highest py-2 rounded font-bold text-primary hover:bg-primary hover:text-on-primary transition-colors">5,000 XP</button>
+</div>
+</div>
+<div class="bg-white p-4 rounded-xl border border-outline-variant hover:border-primary transition-colors flex flex-col items-center text-center opacity-70">
+<div class="w-20 h-20 bg-tertiary-fixed-dim rounded-full mb-4 flex items-center justify-center text-on-tertiary-fixed">
+<span class="material-symbols-outlined text-4xl">landscape</span>
+</div>
+<h5 class="font-bold mb-1">Plant a Grove</h5>
+<p class="text-outline font-label-md mb-3">10 trees in your name</p>
+<div class="mt-auto pt-2 w-full">
+<button class="w-full bg-surface-container-highest py-2 rounded font-bold text-outline cursor-not-allowed">12,000 XP</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Side: Leaderboard & User Progress (4 Cols) -->
+<div class="col-span-12 lg:col-span-4 space-y-gutter">
+<!-- My Progress Card -->
+<div class="bg-white border border-outline-variant rounded-2xl p-6 sticky top-24">
+<div class="flex items-center gap-4 mb-6">
+<div class="relative">
+<img class="w-16 h-16 rounded-full border-4 border-primary/10" data-alt="A profile avatar for a modern UI application. It should show a clean circular frame with a subtle emerald green outer ring. Inside is a high-resolution, professional portrait of an ESG specialist with soft, natural lighting, looking directly into the camera with confidence. The background is a clean, slightly blurred office setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4IopwdHi60e52biAeyA-FJhx6XrACFB32nMJ1Kpe5NC8WcDJhcDTHekzY0q18BShVviPsBuCBoSBajgKYLt2wezF7aWiCGenbbYvxJ7pjjuaXgWdjHqDmLkWy10PApd2Zz1eqstXY1ZKYaQprbEI4DR82U3QpDlaEy5xVChX2jOmZ2itlx8DwftZjchp_n7n4LSzh9XoiFofTDhT_2-wVIcbA2bsOevRkFQNxXXOjT92Q62JCV-Kg7YTZJn3xWwn8mMY5U1XUq40H"/>
+<div class="absolute -bottom-1 -right-1 w-6 h-6 bg-primary rounded-full flex items-center justify-center text-[10px] text-white font-bold border-2 border-white">24</div>
+</div>
+<div>
+<h4 class="font-headline-sm text-lg">Alex Rivera</h4>
+<p class="text-outline font-label-md">Environmental Leader</p>
+</div>
+</div>
+<div class="space-y-4 mb-8">
+<div class="flex justify-between items-end">
+<span class="font-label-md text-outline">Level 24 Progress</span>
+<span class="font-bold text-on-surface">3,450 / 5,000 XP</span>
+</div>
+<div class="w-full h-3 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary to-secondary transition-all duration-1000" style="width: 69%;"></div>
+</div>
+</div>
+<div class="mb-8">
+<h5 class="font-label-md text-outline uppercase tracking-widest mb-4">Recently Earned Badges</h5>
+<div class="flex flex-wrap gap-3">
+<div class="group relative">
+<div class="w-12 h-12 rounded-full border-2 border-primary bg-primary-container/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors cursor-help">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">forest</span>
+</div>
+<div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block bg-inverse-surface text-inverse-on-surface text-[10px] px-2 py-1 rounded whitespace-nowrap">Tree Planter</div>
+</div>
+<div class="group relative">
+<div class="w-12 h-12 rounded-full border-2 border-primary bg-primary-container/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors cursor-help">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">electric_bolt</span>
+</div>
+<div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block bg-inverse-surface text-inverse-on-surface text-[10px] px-2 py-1 rounded whitespace-nowrap">Energy Saver</div>
+</div>
+<div class="group relative">
+<div class="w-12 h-12 rounded-full border-2 border-primary bg-primary-container/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors cursor-help">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">shield_with_heart</span>
+</div>
+<div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block bg-inverse-surface text-inverse-on-surface text-[10px] px-2 py-1 rounded whitespace-nowrap">Eco-Warrior</div>
+</div>
+<div class="w-12 h-12 rounded-full border-2 border-dashed border-outline-variant flex items-center justify-center text-outline-variant">
+<span class="material-symbols-outlined">more_horiz</span>
+</div>
+</div>
+</div>
+<!-- Leaderboard -->
+<div>
+<h5 class="font-headline-sm text-base mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary">leaderboard</span>
+                Top Performers
+              </h5>
+<div class="space-y-4">
+<div class="flex items-center gap-3 p-2 rounded-lg bg-surface-container-lowest border border-outline-variant/50">
+<span class="mono text-outline w-4">1</span>
+<img class="w-8 h-8 rounded-full" data-alt="A diverse portrait of a female executive in her 40s, with a warm but professional gaze. She is wearing a modern tailored navy blazer. The background is a blurred architectural space with natural light. The aesthetic is clean, sharp, and high-fidelity for an enterprise dashboard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1VkGSLFx7US_GE7KUA9R8HISCQYEgxaQZldkrKZFkpnu49eIxpKMPnlakH2AuNCp_fa9GDIww0Sj4zBMJttkVq1jHKC-T2JFEY80kVnD2egXU4eD3WxmafOd7Hq0RE2JMGKr1h9PK0eS34O16fxxVq87YnjVl0q1OYsOmifTP6LfhdvzH6IV936uL-N6PKzbgk7cU5y8o3iuxk5tSHwAbhgngcE6DzjHnOY5EBzAn1GTOEaOVP9Uq3pUMvsnE6BBRQ9dUNat98qN5"/>
+<div class="flex-1">
+<p class="font-bold text-xs">Sarah Chen</p>
+<p class="text-[10px] text-outline">Product Ops</p>
+</div>
+<span class="mono text-primary font-bold text-xs">28,400 XP</span>
+</div>
+<div class="flex items-center gap-3 p-2 rounded-lg">
+<span class="mono text-outline w-4">2</span>
+<img class="w-8 h-8 rounded-full" data-alt="A professional headshot of a middle-aged Black man with a smart, approachable look. He has short hair and is wearing a crisp white dress shirt. The background is a bright, minimalist office setting with soft focus. High-quality lighting and a professional corporate vibe consistent with the EcoSphere platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAe58cH84eZnJnXaN8BQN7oVaxWaBQwSq6dGHPITe79o0CrcXc0j1a61Ym5RzK6jfEwlAe7HllmCA9eaaqp3N4dqiramuL-tH0rPIOsODq-bc0Zw-y8tbva5I8v6TXn3ugtsmFlaUnLa-C4btM-2J2Ewli1HgcvFp7abQB5uPf2hVwMAbZwSoGZrsgaYARJVZFoupZBXR9OFplxvsagU4fmYMzKEINglJdUH_VovpHzZv8a_N72Afr_7BBNP2tnLzuk40XRDXTFLZtk"/>
+<div class="flex-1">
+<p class="font-bold text-xs">Marcus Bell</p>
+<p class="text-[10px] text-outline">Engineering</p>
+</div>
+<span class="mono text-primary font-bold text-xs">26,150 XP</span>
+</div>
+<div class="flex items-center gap-3 p-2 rounded-lg">
+<span class="mono text-outline w-4">3</span>
+<img class="w-8 h-8 rounded-full" data-alt="A bright, professional portrait of a young Caucasian woman in her late 20s. She has a minimalist, clean-cut look with her hair tied back. She's wearing a light-colored sustainable fabric blouse. Soft light-mode aesthetic with a blurred background of a modern workspace. Coherent with the high-stakes ESG platform look." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDacAWHlWsEFB5LkBYJrDbhsNuquIRUARkQwte_sFFKkopZt3Me-X6atJsXczTxgVizLsqDNRyJw5W1BX6M2bBPRkB8iY_FYmGyhceC0Apqzya60M9SgEK1CYmiIDSi-oTt33F9lHxo0xD0coxTa0_yN1E5WkLUH98U0KYyJT_mfb6pbDRjTsK26vLw6KtQRb_6GdSLFtzd_9_zCiODko61nM5hoM7vwGaKg_tFwVyPVNOJyvirX6m3wjw-7XqagFLRbn8tHALUdoMs"/>
+<div class="flex-1">
+<p class="font-bold text-xs">Elena Vosti</p>
+<p class="text-[10px] text-outline">Legal Dept.</p>
+</div>
+<span class="mono text-primary font-bold text-xs">24,900 XP</span>
+</div>
+</div>
+<button class="w-full mt-4 py-2 text-primary font-bold text-xs border border-primary/20 rounded-lg hover:bg-primary/5 transition-colors">See Full Leaderboard</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<script>
+    // Simple micro-interaction for cards
+    document.querySelectorAll('.hover\\:shadow-lg').forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        card.style.transform = 'translateY(-4px)';
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'translateY(0)';
+      });
+    });
+
+    // Animate progress bars on load
+    window.addEventListener('DOMContentLoaded', () => {
+      const bars = document.querySelectorAll('.bg-primary, .bg-gradient-to-r');
+      bars.forEach(bar => {
+        const width = bar.style.width;
+        bar.style.width = '0%';
+        setTimeout(() => {
+          bar.style.width = width;
+        }, 300);
+      });
+    });
+  </script>
+
+<script>
+  // Add listeners to sidebar links inside the iframe to navigate parent wrapper tabs
+  document.querySelectorAll('aside nav a').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const textSpan = link.querySelector('span:last-child');
+      if (textSpan) {
+        const text = textSpan.textContent.trim().toLowerCase();
+        console.log("Iframe navigating parent to:", text);
+        window.parent.postMessage({ type: 'NAVIGATE', target: text }, '*');
+      }
+    });
+  });
+
+  // Intercept logo click
+  const logoDiv = document.querySelector('aside div.flex.items-center.gap-3');
+  if (logoDiv) {
+    logoDiv.style.cursor = 'pointer';
+    logoDiv.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.parent.postMessage({ type: 'NAVIGATE', target: 'environmental' }, '*');
+    });
+  }
+
+  // Intercept buttons to show native alert mockups
+  document.querySelectorAll('button').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const text = btn.textContent.trim().toLowerCase();
+      if (text.includes('export') || text.includes('download')) {
+        e.preventDefault();
+        alert('Exporting audit trail for SEBI BRSR compliance... File download started.');
+      } else if (text.includes('add') || text.includes('create')) {
+        e.preventDefault();
+        window.parent.postMessage({ type: 'ACTION', action: 'add-transaction' }, '*');
+      } else if (text.includes('boost') || text.includes('engagement')) {
+        e.preventDefault();
+        alert('Activating sustainability campaign. Employee email reminders dispatched!');
+      }
+    });
+  });
+</script>
+</body></html>

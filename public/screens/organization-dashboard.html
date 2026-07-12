@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EcoSphere | ESG Management Platform</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#f8f9ff",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-secondary-fixed-variant": "#003ea8",
+                        "tertiary-fixed-dim": "#ffb77d",
+                        "outline": "#6d7a72",
+                        "tertiary": "#8d4b00",
+                        "on-surface": "#121c28",
+                        "primary-fixed": "#85f8c4",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed-dim": "#68dba9",
+                        "secondary": "#0051d5",
+                        "on-surface-variant": "#3d4a42",
+                        "surface-container": "#e5eeff",
+                        "surface-container-highest": "#d9e3f4",
+                        "secondary-container": "#316bf3",
+                        "on-tertiary-fixed-variant": "#6e3900",
+                        "on-secondary-fixed": "#00174b",
+                        "surface": "#f8f9ff",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#fefcff",
+                        "on-primary-fixed-variant": "#005137",
+                        "primary-container": "#00855d",
+                        "on-error": "#ffffff",
+                        "surface-container-high": "#dfe9fa",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-surface": "#27313e",
+                        "tertiary-fixed": "#ffdcc3",
+                        "surface-variant": "#d9e3f4",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#dbe1ff",
+                        "surface-tint": "#006c4a",
+                        "surface-bright": "#f8f9ff",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#d1dbec",
+                        "error-container": "#ffdad6",
+                        "outline-variant": "#bccac0",
+                        "secondary-fixed-dim": "#b4c5ff",
+                        "primary": "#006948",
+                        "on-background": "#121c28",
+                        "on-tertiary-container": "#fffbff",
+                        "inverse-primary": "#68dba9",
+                        "on-primary-container": "#f5fff7",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#eef4ff",
+                        "on-tertiary-fixed": "#2f1500",
+                        "tertiary-container": "#b15f00",
+                        "on-primary-fixed": "#002114"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "container-max": "1440px",
+                        "baseline": "4px",
+                        "margin-desktop": "32px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Manrope"],
+                        "headline-sm": ["Manrope"],
+                        "body-sm": ["Inter"],
+                        "headline-lg-mobile": ["Manrope"],
+                        "headline-md": ["Manrope"],
+                        "label-md": ["JetBrains Mono"],
+                        "display-lg": ["Manrope"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .bg-esg-gradient {
+            background: linear-gradient(90deg, #006948 0%, #0051d5 100%);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #bccac0;
+            border-radius: 2px;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(229, 231, 235, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-background font-body-md text-on-background min-h-screen">
+<!-- SideNavBar -->
+<aside class="w-[280px] h-screen fixed left-0 top-0 border-r border-outline-variant dark:border-outline bg-background dark:bg-inverse-surface flex flex-col py-6 px-4 z-50">
+<div class="flex items-center gap-3 mb-10 px-2">
+<div class="w-10 h-10 bg-primary-container rounded flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">eco</span>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-extrabold text-primary dark:text-primary-fixed leading-none">EcoSphere</h1>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider mt-1">ESG Management</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1 overflow-y-auto custom-scrollbar">
+<!-- Active Tab: Environmental (Dashboard Focus) -->
+<a class="flex items-center gap-3 px-4 py-3 text-primary dark:text-primary-fixed font-bold border-r-4 border-primary dark:border-primary-fixed bg-primary-container/10 transition-transform duration-200 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined">eco</span>
+<span class="font-label-md text-label-md">Environmental</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant font-medium hover:text-primary hover:bg-surface-container-high dark:hover:bg-surface-variant transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="font-label-md text-label-md">Social</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant font-medium hover:text-primary hover:bg-surface-container-high dark:hover:bg-surface-variant transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">gavel</span>
+<span class="font-label-md text-label-md">Governance</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant font-medium hover:text-primary hover:bg-surface-container-high dark:hover:bg-surface-variant transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">military_tech</span>
+<span class="font-label-md text-label-md">Challenges</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant font-medium hover:text-primary hover:bg-surface-container-high dark:hover:bg-surface-variant transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">bar_chart</span>
+<span class="font-label-md text-label-md">Reports</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant font-medium hover:text-primary hover:bg-surface-container-high dark:hover:bg-surface-variant transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 space-y-1">
+<button class="w-full bg-primary text-on-primary font-bold py-3 px-4 rounded mb-6 flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-lg">add</span>
+<span class="font-label-md text-label-md uppercase">Add Transaction</span>
+</button>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant font-medium hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">help</span>
+<span class="font-label-md text-label-md">Help Center</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-error font-medium hover:opacity-80 transition-opacity" href="#">
+<span class="material-symbols-outlined text-xl">logout</span>
+<span class="font-label-md text-label-md">Logout</span>
+</a>
+</div>
+</aside>
+<!-- TopAppBar -->
+<header class="h-16 sticky top-0 z-40 bg-surface-container-lowest dark:bg-background border-b border-outline-variant dark:border-outline flex items-center justify-between px-gutter ml-[280px] w-[calc(100%-280px)]">
+<div class="flex items-center bg-surface-container rounded-full px-4 py-1.5 w-96">
+<span class="material-symbols-outlined text-on-surface-variant mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-sm w-full placeholder:text-on-surface-variant/60" placeholder="Search carbon data, CSR reports..." type="text"/>
+</div>
+<div class="flex items-center gap-6">
+<button class="relative text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<div class="flex items-center gap-3 pl-6 border-l border-outline-variant">
+<div class="text-right">
+<p class="font-headline-sm text-[14px] font-bold text-on-surface leading-none">Alex Rivera</p>
+<p class="font-label-md text-[10px] text-on-surface-variant mt-1">Sustainability Lead</p>
+</div>
+<img class="w-10 h-10 rounded-full border border-outline-variant object-cover" data-alt="A professional headshot of a person in a minimalist, modern office setting with soft daylight filtering through. The person is dressed in smart business casual attire, reflecting an authoritative yet forward-thinking corporate personality. High-quality commercial photography style, neutral tones with subtle green accents in the background foliage." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1hT5K1C8ZgEfdHy2yFzaSyVgSouJys27gNh3Qz2AvhP87yR0u8tAtb6G8TDi_cuqmOBUV-azu7WgKdDpMCSwFTIdDS7FxJt4omZEaDHF0I6IIdsSw-ekNLRqjrVtYs43ldtdulH-3Ih_Okw_Aj-oJpmiOAhm8g8pLvj5mmDd47m06WBDxsnsrF1crE9ychhEa1ugzF5_rSwPOaWx3Zc5mzEU0lDaft_Z8n_rSJK0t9hei1ysSp7KVi4KPm-Cuny-XCc8wg02AXYKy"/>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="ml-[280px] p-gutter">
+<!-- Dashboard Header -->
+<div class="flex justify-between items-end mb-8">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Organization Dashboard</h2>
+<p class="text-on-surface-variant mt-1 font-body-md">Enterprise-wide ESG performance and real-time sustainability metrics.</p>
+</div>
+<div class="flex gap-3">
+<div class="px-4 py-2 bg-surface-container rounded-lg border border-outline-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant">calendar_today</span>
+<span class="font-label-md text-label-md text-on-surface">FY 2024 - Q3</span>
+</div>
+<button class="px-4 py-2 border border-primary text-primary font-bold rounded-lg hover:bg-primary/5 transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined">download</span>
+<span class="font-label-md text-label-md uppercase">Export Audit</span>
+</button>
+</div>
+</div>
+<!-- ESG Score Overview (Bento Grid Style) -->
+<div class="grid grid-cols-12 gap-6 mb-8">
+<!-- Overall Score -->
+<div class="col-span-12 lg:col-span-4 bg-white border border-outline-variant rounded-xl p-6 flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 transition-transform group-hover:scale-110"></div>
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest mb-1">Overall ESG Score</p>
+<div class="flex items-baseline gap-2">
+<span class="font-display-lg text-display-lg text-primary">82.4</span>
+<span class="font-headline-sm text-on-surface-variant">/ 100</span>
+</div>
+</div>
+<div class="mt-8">
+<div class="flex justify-between text-body-sm mb-2">
+<span class="text-on-surface-variant">Target Achievement</span>
+<span class="font-bold text-primary">+4.2% vs prev. quarter</span>
+</div>
+<div class="h-3 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-esg-gradient w-[82.4%]"></div>
+</div>
+</div>
+</div>
+<!-- Weighted Breakdown -->
+<div class="col-span-12 lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="bg-white border border-outline-variant rounded-xl p-6">
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 rounded-lg bg-primary-container/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">forest</span>
+</div>
+<span class="font-label-md text-label-md font-bold text-on-surface-variant">40% WEIGHT</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase">Environmental</p>
+<p class="font-headline-md text-headline-md text-on-surface mt-1">76.5 <span class="text-body-sm font-normal text-on-surface-variant">B+</span></p>
+<div class="mt-4 flex gap-1">
+<div class="h-1.5 flex-1 bg-primary rounded-full"></div>
+<div class="h-1.5 flex-1 bg-primary rounded-full"></div>
+<div class="h-1.5 flex-1 bg-primary rounded-full"></div>
+<div class="h-1.5 flex-1 bg-surface-container rounded-full"></div>
+</div>
+</div>
+<div class="bg-white border border-outline-variant rounded-xl p-6">
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 rounded-lg bg-secondary-container/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">diversity_3</span>
+</div>
+<span class="font-label-md text-label-md font-bold text-on-surface-variant">30% WEIGHT</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase">Social</p>
+<p class="font-headline-md text-headline-md text-on-surface mt-1">89.2 <span class="text-body-sm font-normal text-on-surface-variant">A</span></p>
+<div class="mt-4 flex gap-1">
+<div class="h-1.5 flex-1 bg-secondary rounded-full"></div>
+<div class="h-1.5 flex-1 bg-secondary rounded-full"></div>
+<div class="h-1.5 flex-1 bg-secondary rounded-full"></div>
+<div class="h-1.5 flex-1 bg-secondary rounded-full"></div>
+</div>
+</div>
+<div class="bg-white border border-outline-variant rounded-xl p-6">
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 rounded-lg bg-tertiary-container/10 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined">assured_workload</span>
+</div>
+<span class="font-label-md text-label-md font-bold text-on-surface-variant">30% WEIGHT</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase">Governance</p>
+<p class="font-headline-md text-headline-md text-on-surface mt-1">84.0 <span class="text-body-sm font-normal text-on-surface-variant">A-</span></p>
+<div class="mt-4 flex gap-1">
+<div class="h-1.5 flex-1 bg-tertiary rounded-full"></div>
+<div class="h-1.5 flex-1 bg-tertiary rounded-full"></div>
+<div class="h-1.5 flex-1 bg-tertiary rounded-full"></div>
+<div class="h-1.5 flex-1 bg-surface-container rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Secondary Metrics Row -->
+<div class="grid grid-cols-12 gap-6 mb-8">
+<!-- Key Metrics Table-ish -->
+<div class="col-span-12 lg:col-span-8 bg-white border border-outline-variant rounded-xl overflow-hidden">
+<div class="px-6 py-4 border-b border-outline-variant flex justify-between items-center bg-surface-container-low">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Department ESG Rankings</h3>
+<button class="text-primary font-bold font-label-md uppercase hover:underline">View All Departments</button>
+</div>
+<div class="p-6">
+<table class="w-full">
+<thead class="text-left border-b border-outline-variant">
+<tr class="font-label-md text-on-surface-variant uppercase tracking-wider">
+<th class="pb-4 font-medium">Department</th>
+<th class="pb-4 font-medium text-center">Carbon Score</th>
+<th class="pb-4 font-medium text-center">CSR Participation</th>
+<th class="pb-4 font-medium text-right">Total Score</th>
+</tr>
+</thead>
+<tbody class="text-body-md divide-y divide-outline-variant/30">
+<tr>
+<td class="py-4 flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+                                    Manufacturing
+                                </td>
+<td class="py-4 text-center text-primary font-bold">72.4</td>
+<td class="py-4 text-center">
+<div class="flex justify-center items-center gap-2">
+<div class="w-16 h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[45%]"></div>
+</div>
+<span class="text-body-sm">45%</span>
+</div>
+</td>
+<td class="py-4 text-right font-headline-sm">74.8</td>
+</tr>
+<tr>
+<td class="py-4 flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+                                    Logistics &amp; Fleet
+                                </td>
+<td class="py-4 text-center text-primary font-bold">68.1</td>
+<td class="py-4 text-center">
+<div class="flex justify-center items-center gap-2">
+<div class="w-16 h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[88%]"></div>
+</div>
+<span class="text-body-sm">88%</span>
+</div>
+</td>
+<td class="py-4 text-right font-headline-sm">79.2</td>
+</tr>
+<tr>
+<td class="py-4 flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+                                    R&amp;D / Product
+                                </td>
+<td class="py-4 text-center text-primary font-bold">92.5</td>
+<td class="py-4 text-center">
+<div class="flex justify-center items-center gap-2">
+<div class="w-16 h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[62%]"></div>
+</div>
+<span class="text-body-sm">62%</span>
+</div>
+</td>
+<td class="py-4 text-right font-headline-sm">88.4</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Participation Summary -->
+<div class="col-span-12 lg:col-span-4 flex flex-col gap-6">
+<div class="bg-white border border-outline-variant rounded-xl p-6">
+<p class="font-label-md text-label-md text-on-surface-variant uppercase mb-4">Live Transaction Feed</p>
+<div class="space-y-4">
+<div class="flex items-center gap-4">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-lg">factory</span>
+</div>
+<div class="flex-1">
+<p class="text-body-sm font-bold leading-tight">New Carbon Transaction</p>
+<p class="text-label-md text-on-surface-variant">Line-4 Facility Operations</p>
+</div>
+<span class="text-body-sm font-mono text-error">-124kg</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-lg">volunteer_activism</span>
+</div>
+<div class="flex-1">
+<p class="text-body-sm font-bold leading-tight">CSR Activity Logged</p>
+<p class="text-label-md text-on-surface-variant">Urban Re-greening Project</p>
+</div>
+<span class="text-body-sm font-mono text-primary">+15 XP</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary text-lg">task_alt</span>
+</div>
+<div class="flex-1">
+<p class="text-body-sm font-bold leading-tight">Policy Acknowledged</p>
+<p class="text-label-md text-on-surface-variant">Ethical Sourcing Update</p>
+</div>
+<span class="text-body-sm font-mono text-tertiary">Verified</span>
+</div>
+</div>
+</div>
+<div class="bg-primary text-on-primary rounded-xl p-6 relative overflow-hidden">
+<span class="material-symbols-outlined absolute -bottom-4 -right-4 text-9xl opacity-10">military_tech</span>
+<h3 class="font-headline-sm text-headline-sm mb-2">Corporate Goal</h3>
+<p class="text-body-sm mb-4 opacity-90">Reach 100% Employee participation in CSR challenges by end of quarter.</p>
+<div class="flex items-end justify-between">
+<div>
+<span class="font-display-lg text-[32px]">74%</span>
+<span class="text-label-md block uppercase tracking-tighter opacity-80">Current Status</span>
+</div>
+<button class="bg-white text-primary px-4 py-2 rounded font-bold text-[12px] uppercase hover:bg-opacity-90 transition-all">Boost Engagement</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Active Challenges Section -->
+<div class="grid grid-cols-12 gap-6">
+<div class="col-span-12">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Active Sustainability Challenges</h3>
+<div class="flex gap-2">
+<button class="p-2 border border-outline-variant rounded hover:bg-white transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="p-2 border border-outline-variant rounded hover:bg-white transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Challenge Card 1 -->
+<div class="glass-card rounded-xl p-6 flex flex-col group cursor-pointer hover:border-primary/50 transition-all">
+<div class="flex justify-between items-start mb-4">
+<span class="px-2 py-1 bg-amber-100 text-amber-800 rounded font-label-md text-[10px] font-bold uppercase flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">emoji_events</span> 500 XP
+                            </span>
+<span class="text-on-surface-variant font-label-md">12 DAYS LEFT</span>
+</div>
+<h4 class="font-headline-sm text-on-surface group-hover:text-primary transition-colors">The Paperless Office Initiative</h4>
+<p class="text-body-sm text-on-surface-variant mt-2 mb-6">Reduce department-wide printing by 40% using digital documentation workflows.</p>
+<div class="mt-auto">
+<div class="flex justify-between text-label-md mb-2">
+<span class="text-on-surface-variant">Global Progress</span>
+<span class="text-on-surface font-bold">62%</span>
+</div>
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[62%]"></div>
+</div>
+<div class="mt-4 flex -space-x-2 overflow-hidden">
+<img class="inline-block h-8 w-8 rounded-full ring-2 ring-white" data-alt="Close up avatar of a diverse office employee with a friendly smile, clean minimalist lighting, high-end professional corporate style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCViOspiyhCKWc8Kd4TTkAIaY5FkdmWWwmvz8oTyrHgRtuBAP59oUEnvtQYEn9wGN1DN6rUDZfE5x-UuQ6-37EWwsfy6xa4Nn29k7l6H7hskKn4NrIlj9lgdHw6Kt5jS4ixle5KTcxgJMZVHlAZWrUQeRwYgcfly5b-RhHpV1u3k1Zkm2lXJvYqQeff7dJsi9KE_UxcGAJ3EP5Y9Nfv99ZyhhbzgSPVUC7_qDNXMrTeMGiekNK9WDApkMdzLjCvhiz2KUs_54zJiBSF"/>
+<img class="inline-block h-8 w-8 rounded-full ring-2 ring-white" data-alt="Close up avatar of a young professional man in tech with glasses, soft studio lighting, corporate modern aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0FV3BhYLWJSxSeS0nuoh2vW8vSISN-3yoX8Qg_JbdadAYQtY3GyEX3thWMOUTYFPwxBfM9FsKlL0gTs8V7UcwGrWxB9WHOuxcY-2t2EhVbpWB19BaAwesrS7RnRi2ncJe6kSHZ2oqf0iXYx333ZVpD_59r-AettqogISx4KrjLUZb3MxDh-A4xOXZoaWybxbn_cVeWiuK3tpX7rexTZlkUef0brmvwiIQ2s0kyNuwQz3yKtpGomvcilYlfGTO_CH20aUCw--Yvgb-"/>
+<img class="inline-block h-8 w-8 rounded-full ring-2 ring-white" data-alt="Close up avatar of a senior female executive looking confident, professional photography, high-end business environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKwOEaDRkG_vJP8DXCs1YkCumttSphgqw3d1DJh967v3kwsIBEd3gHbHYcsXfUF5e6GwJdAwZhwxn5yNXg-ipU2U7iYHwHSuv5ntATLvLEV65IAhFivVZYULXa4nVhoSCHYBkRHJuF5u6WrIeJE8p8HFc3CaArfzXFkXuAw69Vg0ljLl6CuNJzltWRSI8dmwA75PWunpZmK-xW6m7YyH_BvSuPg1QIiNowt7m7GyMOjJ5FhaPGh47TvRqEoUvZyqm6S8c-F83wtKeN"/>
+<div class="flex items-center justify-center h-8 w-8 rounded-full bg-surface-container-high ring-2 ring-white text-[10px] font-bold text-on-surface-variant">
+                                    +12
+                                </div>
+</div>
+</div>
+</div>
+<!-- Challenge Card 2 -->
+<div class="glass-card rounded-xl p-6 flex flex-col group cursor-pointer hover:border-primary/50 transition-all">
+<div class="flex justify-between items-start mb-4">
+<span class="px-2 py-1 bg-amber-100 text-amber-800 rounded font-label-md text-[10px] font-bold uppercase flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">emoji_events</span> 250 XP
+                            </span>
+<span class="text-on-surface-variant font-label-md">3 DAYS LEFT</span>
+</div>
+<h4 class="font-headline-sm text-on-surface group-hover:text-primary transition-colors">Zero-Waste Commute Week</h4>
+<p class="text-body-sm text-on-surface-variant mt-2 mb-6">Track your commute and choose public transport, cycling, or walking alternatives.</p>
+<div class="mt-auto">
+<div class="flex justify-between text-label-md mb-2">
+<span class="text-on-surface-variant">Global Progress</span>
+<span class="text-on-surface font-bold">88%</span>
+</div>
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[88%]"></div>
+</div>
+<div class="mt-4 flex -space-x-2 overflow-hidden">
+<img class="inline-block h-8 w-8 rounded-full ring-2 ring-white" data-alt="Professional avatar portrait of a creative individual with vibrant energy, clean lighting, modern business aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZfbSDJ81Q732b1pzR4vxCSn31_owOE9URETXnUZSjtvj2K4mtLZFOeMqr67cs4VO23N8TIkxAmb-cM5B2LtBiUZLeG5ciWt2txJO1j9g17YrpT10kisaB9mOzCOLVKaMAjVQSbTAGR42E1VGG_8wLgGEuEYSRElOVv8gwyiy7PG0JG_iJYVkJnE1Gpa0g4o5k5UI6Bg5fzSon7l6q9-7Il6hEsBiKAUwbenZpPYMROCoxxpwr3eGEJqd0FQeHEWgbmlFubEX0w9Wk"/>
+<img class="inline-block h-8 w-8 rounded-full ring-2 ring-white" data-alt="Professional avatar portrait of an engineer in a modern workplace setting, soft natural lighting, high-fidelity corporate style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeyomo5SVFWUHElcc_xqQJ_omPci7d_Rti6S1GkUnMBFdXmheA_0NNTCXnVBHjpBFAVo3Od1jEQp5M5aBZPHdf99YX_n0fyHLKiuZIBU_C4_TLjQGEBnC9wuqrLFLHzB0N5v3Hb1N_ckkiJNHbEWmKUxGgDgi3pPAIga3g9nNBTiEbr8w7gbm7l0dw2g417WBzLHhVAyYI3H1ANpCbDxlgt1lGnb2x5s4d3X7KDEqZ2nf52Dc9wc8fG5aBhge6YQvxIi5yZKALIe9f"/>
+<div class="flex items-center justify-center h-8 w-8 rounded-full bg-surface-container-high ring-2 ring-white text-[10px] font-bold text-on-surface-variant">
+                                    +42
+                                </div>
+</div>
+</div>
+</div>
+<!-- Challenge Card 3 -->
+<div class="glass-card rounded-xl p-6 flex flex-col group cursor-pointer hover:border-primary/50 transition-all">
+<div class="flex justify-between items-start mb-4">
+<span class="px-2 py-1 bg-amber-100 text-amber-800 rounded font-label-md text-[10px] font-bold uppercase flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">emoji_events</span> 1000 XP
+                            </span>
+<span class="text-on-surface-variant font-label-md">NEW</span>
+</div>
+<h4 class="font-headline-sm text-on-surface group-hover:text-primary transition-colors">Renewable Energy Audit</h4>
+<p class="text-body-sm text-on-surface-variant mt-2 mb-6">Assist our facilities management team in identifying energy leakage in warehouses.</p>
+<div class="mt-auto">
+<div class="flex justify-between text-label-md mb-2">
+<span class="text-on-surface-variant">Global Progress</span>
+<span class="text-on-surface font-bold">5%</span>
+</div>
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[5%]"></div>
+</div>
+<div class="mt-4 flex items-center gap-2">
+<span class="text-label-md text-primary font-bold">HURRY! ONLY 10 SLOTS LEFT</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Button -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-primary text-on-primary rounded-full shadow-lg flex items-center justify-center hover:scale-110 active:scale-95 transition-transform z-50">
+<span class="material-symbols-outlined text-2xl">add</span>
+</button>
+<script>
+        // Micro-interactions and data visualization highlights
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-4px)';
+                card.style.boxShadow = '0 12px 24px -8px rgba(0, 105, 72, 0.15)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+                card.style.boxShadow = 'none';
+            });
+        });
+    </script>
+
+<script>
+  // Add listeners to sidebar links inside the iframe to navigate parent wrapper tabs
+  document.querySelectorAll('aside nav a').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const textSpan = link.querySelector('span:last-child');
+      if (textSpan) {
+        const text = textSpan.textContent.trim().toLowerCase();
+        console.log("Iframe navigating parent to:", text);
+        window.parent.postMessage({ type: 'NAVIGATE', target: text }, '*');
+      }
+    });
+  });
+
+  // Intercept logo click
+  const logoDiv = document.querySelector('aside div.flex.items-center.gap-3');
+  if (logoDiv) {
+    logoDiv.style.cursor = 'pointer';
+    logoDiv.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.parent.postMessage({ type: 'NAVIGATE', target: 'environmental' }, '*');
+    });
+  }
+
+  // Intercept buttons to show native alert mockups
+  document.querySelectorAll('button').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const text = btn.textContent.trim().toLowerCase();
+      if (text.includes('export') || text.includes('download')) {
+        e.preventDefault();
+        alert('Exporting audit trail for SEBI BRSR compliance... File download started.');
+      } else if (text.includes('add') || text.includes('create')) {
+        e.preventDefault();
+        window.parent.postMessage({ type: 'ACTION', action: 'add-transaction' }, '*');
+      } else if (text.includes('boost') || text.includes('engagement')) {
+        e.preventDefault();
+        alert('Activating sustainability campaign. Employee email reminders dispatched!');
+      }
+    });
+  });
+</script>
+</body></html>

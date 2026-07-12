@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Global ESG Insights | EcoSphere</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&family=JetBrains+Mono:wght@500&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:wght@100..900&family=Manrope:wght@100..900&display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid #E5E7EB;
+        }
+        .map-gradient-overlay {
+            background: radial-gradient(circle at center, transparent 0%, rgba(248, 249, 255, 0.1) 100%);
+        }
+        @keyframes pulse-soft {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.1); opacity: 0.4; }
+        }
+        .hotspot-pulse {
+            animation: pulse-soft 3s infinite ease-in-out;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#ffb77d",
+                        "on-tertiary-container": "#fffbff",
+                        "on-secondary-fixed": "#00174b",
+                        "background": "#f8f9ff",
+                        "primary-fixed": "#85f8c4",
+                        "surface-container-highest": "#d9e3f4",
+                        "secondary": "#0051d5",
+                        "outline-variant": "#bccac0",
+                        "on-secondary-container": "#fefcff",
+                        "on-secondary": "#ffffff",
+                        "surface-container-low": "#eef4ff",
+                        "on-tertiary-fixed-variant": "#6e3900",
+                        "on-surface-variant": "#3d4a42",
+                        "on-error": "#ffffff",
+                        "outline": "#6d7a72",
+                        "surface-container-lowest": "#ffffff",
+                        "on-background": "#121c28",
+                        "secondary-fixed": "#dbe1ff",
+                        "surface-container-high": "#dfe9fa",
+                        "inverse-on-surface": "#eaf1ff",
+                        "surface-tint": "#006c4a",
+                        "inverse-surface": "#27313e",
+                        "surface-variant": "#d9e3f4",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#d1dbec",
+                        "primary-fixed-dim": "#68dba9",
+                        "secondary-container": "#316bf3",
+                        "on-primary-fixed-variant": "#005137",
+                        "inverse-primary": "#68dba9",
+                        "on-surface": "#121c28",
+                        "surface-container": "#e5eeff",
+                        "tertiary-container": "#b15f00",
+                        "surface-bright": "#f8f9ff",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#003ea8",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed": "#2f1500",
+                        "error-container": "#ffdad6",
+                        "primary-container": "#00855d",
+                        "primary": "#006948",
+                        "tertiary-fixed": "#ffdcc3",
+                        "on-primary-fixed": "#002114",
+                        "on-primary-container": "#f5fff7",
+                        "on-primary": "#ffffff",
+                        "tertiary": "#8d4b00",
+                        "surface": "#f8f9ff",
+                        "secondary-fixed-dim": "#b4c5ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "baseline": "4px",
+                        "gutter": "24px",
+                        "margin-desktop": "32px",
+                        "container-max": "1440px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Manrope"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Manrope"],
+                        "headline-lg": ["Manrope"],
+                        "body-sm": ["Inter"],
+                        "label-md": ["JetBrains Mono"],
+                        "headline-sm": ["Manrope"],
+                        "display-lg": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- SideNavBar Integration -->
+<aside class="w-[280px] h-screen fixed left-0 top-0 bg-background border-r border-outline-variant flex flex-col py-6 px-4 z-50">
+<div class="flex items-center gap-3 mb-10 px-2">
+<div class="w-10 h-10 bg-primary-container rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container" style="font-variation-settings: 'FILL' 1;">eco</span>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-extrabold text-primary">EcoSphere</h1>
+<p class="font-label-md text-label-md text-on-surface-variant leading-none uppercase tracking-widest">ESG Management</p>
+</div>
+</div>
+<nav class="flex-grow space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-primary font-bold border-r-4 border-primary bg-primary-container/10 transition-transform scale-[0.98]" href="#">
+<span class="material-symbols-outlined">eco</span>
+<span class="font-label-md text-label-md">Environmental</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium hover:text-primary hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="font-label-md text-label-md">Social</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium hover:text-primary hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">gavel</span>
+<span class="font-label-md text-label-md">Governance</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium hover:text-primary hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">military_tech</span>
+<span class="font-label-md text-label-md">Challenges</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium hover:text-primary hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">bar_chart</span>
+<span class="font-label-md text-label-md">Reports</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium hover:text-primary hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-outline-variant space-y-1">
+<button class="w-full mb-4 bg-primary text-on-primary py-3 px-4 flex items-center justify-center gap-2 font-label-md text-label-md rounded shadow-sm hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined">add</span>
+                Add Transaction
+            </button>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-label-md text-label-md">Help Center</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-md text-label-md">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-[280px] w-[calc(100%-280px)] min-h-screen">
+<!-- TopAppBar Integration -->
+<header class="h-16 w-full sticky top-0 z-40 bg-surface-container-lowest border-b border-outline-variant flex items-center justify-between px-8">
+<div class="flex items-center gap-4 bg-surface-container-low px-4 py-1.5 rounded-full border border-outline-variant w-96">
+<span class="material-symbols-outlined text-on-surface-variant">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full placeholder:text-on-surface-variant" placeholder="Search ESG data, metrics, or reports..." type="text"/>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-1.5 px-3 py-1 bg-tertiary-fixed text-on-tertiary-fixed rounded-full">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="font-label-md text-label-md">Executive View</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<div class="flex items-center gap-3 pl-4 border-l border-outline-variant">
+<div class="text-right">
+<p class="font-label-md text-label-md font-bold leading-none">Sarah Jenkins</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-tighter">Chief Sustainability Officer</p>
+</div>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container">
+<img class="w-full h-full object-cover" data-alt="A professional corporate headshot of a woman in her 40s with a confident expression, wearing a tailored navy suit. The lighting is soft and professional, set against a blurred high-end office background with plants and large windows. The overall aesthetic is clean, authoritative, and sophisticated, matching a premium executive dashboard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3MiuP5auyRNQvYzaGN39kmZcWWflS2Vh8_9zf_KYV6Pz7ZzjEKBhG8DrEB_248_sIiqZEcNrKZUbPX2yZC-ZG_4p-YFjPlcxDP4Zvq4Z_skZYLD-qqheeC0_LDaDuekqKIK2dEKJXw1QvM2ddt2tSYiOqOQPeO_5UiUPwKtS9cUtb2Lz6cX5vg_Fw4uxEkl6EUo9Bcm207vrVZyuVGZGjwWXBaLH7itoyMMlbL3JLNUQTpIKWiYMjkxBsAk76IovGysIcHVaXSYRk"/>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Dashboard Content -->
+<div class="p-8 max-w-[1600px] mx-auto">
+<!-- Page Header -->
+<div class="mb-8 flex justify-between items-end">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-background">Global ESG Insights</h2>
+<p class="text-on-surface-variant max-w-2xl">Strategic oversight of carbon neutrality progress, social indices, and governance compliance across all international territories.</p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-4 py-2 border border-outline text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">calendar_today</span>
+                        Q3 2023 - FYTD
+                    </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-primary text-on-primary font-label-md text-label-md hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined">file_download</span>
+                        Export Board Report
+                    </button>
+</div>
+</div>
+<!-- KPI Row (Strategic Tiles) -->
+<div class="grid grid-cols-12 gap-gutter mb-gutter">
+<!-- Carbon Progress -->
+<div class="col-span-12 md:col-span-4 glass-card p-6 flex flex-col justify-between">
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 bg-primary-container/20 rounded flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">cloud_done</span>
+</div>
+<span class="font-label-md text-label-md text-primary font-bold">+4.2% YoY</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest mb-1">Carbon Neutrality</p>
+<h3 class="font-display-lg text-display-lg leading-none mb-4">68.4<span class="text-headline-md">%</span></h3>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 68.4%"></div>
+</div>
+<p class="text-[10px] mt-2 text-on-surface-variant font-medium">TARGET: 100% BY 2030</p>
+</div>
+</div>
+<!-- Diversity Index -->
+<div class="col-span-12 md:col-span-4 glass-card p-6 flex flex-col justify-between">
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 bg-secondary-container/20 rounded flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">diversity_3</span>
+</div>
+<span class="font-label-md text-label-md text-secondary font-bold">In-Range</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest mb-1">Diversity Index</p>
+<h3 class="font-display-lg text-display-lg leading-none mb-4">0.82</h3>
+<div class="flex gap-1 h-2">
+<div class="flex-1 bg-secondary rounded-full"></div>
+<div class="flex-1 bg-secondary rounded-full"></div>
+<div class="flex-1 bg-secondary rounded-full"></div>
+<div class="flex-1 bg-surface-container rounded-full"></div>
+</div>
+<p class="text-[10px] mt-2 text-on-surface-variant font-medium">EQUITY BENCHMARK: 0.85+</p>
+</div>
+</div>
+<!-- Audit Readiness -->
+<div class="col-span-12 md:col-span-4 glass-card p-6 flex flex-col justify-between">
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 bg-tertiary-container/20 rounded flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</div>
+<span class="font-label-md text-label-md text-tertiary font-bold">Critical Path</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest mb-1">Audit Readiness</p>
+<h3 class="font-display-lg text-display-lg leading-none mb-4">92<span class="text-headline-md">%</span></h3>
+<div class="flex items-center justify-between text-[10px] font-bold text-on-surface-variant mb-1">
+<span>ISO 14001</span>
+<span>VALIDATED</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-tertiary" style="width: 92%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Interactive Row -->
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Global Map Visualization -->
+<div class="col-span-12 lg:col-span-8 glass-card overflow-hidden relative min-h-[500px]">
+<div class="absolute top-6 left-6 z-10">
+<h4 class="font-headline-sm text-headline-sm">Operational Impact Map</h4>
+<div class="flex gap-4 mt-2">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-primary"></span>
+<span class="font-label-md text-label-md text-on-surface-variant">CSR Projects</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-error hotspot-pulse"></span>
+<span class="font-label-md text-label-md text-on-surface-variant">Emission Hotspots</span>
+</div>
+</div>
+</div>
+<!-- Map Container -->
+<div class="w-full h-full relative bg-[#edf2f9]">
+<div class="absolute inset-0 map-gradient-overlay pointer-events-none"></div>
+<!-- Placeholder for a high-fidelity vector map -->
+<div class="w-full h-full overflow-hidden flex items-center justify-center">
+<div class="relative w-full h-full bg-cover bg-no-repeat opacity-60" data-alt="A clean, minimalist world map visualization in soft blues and grays. The oceans are a light powder blue, and landmasses are rendered in a slightly darker neutral gray with thin white borders. Scattered across the map are glowing primary green dots representing corporate social responsibility projects and pulsing soft red circles representing industrial emission hotspots. The overall look is professional, data-driven, and high-tech corporate dashboard style." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAbzJ_E9chN5xunWS7x0Kaq57i6sOgQjGgx18v6Cci4ejEcCgBqZIuraHUQWLuMdHoj92cWOAlBKVfpQR0hTo-QjqHsalcP6AAtpS68EEVdqPoPPd1t4lD3cOQkUVdDp-UwC-TyNSj_CgF4cmdt-h2cgGjliwdcAVEKwSzFsHVr4cwJyaDyo7glHC05ELBsR_QHEHEm9ScfDzoNfrNY_vPs48KbJm9rPAz3bhvZBAER3zkcvt5B3Cza88WAPW-iSKUEqo-jHROlRhhn')">
+<!-- Hotspot Overlays -->
+<div class="absolute top-[35%] left-[22%] w-6 h-6 bg-error/30 rounded-full flex items-center justify-center hotspot-pulse">
+<div class="w-2 h-2 bg-error rounded-full"></div>
+</div>
+<div class="absolute top-[45%] left-[55%] w-10 h-10 bg-error/20 rounded-full flex items-center justify-center hotspot-pulse" style="animation-delay: 1s;">
+<div class="w-3 h-3 bg-error rounded-full"></div>
+</div>
+<!-- Project Overlays -->
+<div class="absolute top-[50%] left-[30%] group">
+<span class="material-symbols-outlined text-primary text-3xl cursor-pointer" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<div class="hidden group-hover:block absolute -top-16 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface p-2 text-xs rounded whitespace-nowrap z-30">
+                                        Amazon Reforestation Initiative<br/><span class="font-bold">Impact: +12k Tonnes Offset</span>
+</div>
+</div>
+<div class="absolute top-[30%] left-[75%] group">
+<span class="material-symbols-outlined text-primary text-3xl cursor-pointer" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Map Controls -->
+<div class="absolute bottom-6 left-6 flex flex-col gap-2">
+<button class="w-8 h-8 bg-white border border-outline-variant flex items-center justify-center shadow-sm hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+<button class="w-8 h-8 bg-white border border-outline-variant flex items-center justify-center shadow-sm hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-sm">remove</span>
+</button>
+</div>
+</div>
+<!-- Insights & AI Panel -->
+<div class="col-span-12 lg:col-span-4 flex flex-col gap-gutter">
+<div class="glass-card p-6 flex-grow">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-primary">auto_awesome</span>
+<h4 class="font-headline-sm text-headline-sm">AI Strategic Insights</h4>
+</div>
+<div class="space-y-4">
+<!-- Insight 1 -->
+<div class="p-4 bg-primary-container/5 border-l-4 border-primary rounded-r">
+<div class="flex justify-between items-start mb-1">
+<span class="font-label-md text-label-md font-bold text-primary">OPPORTUNITY</span>
+<span class="text-[10px] text-on-surface-variant">HIGH CONFIDENCE</span>
+</div>
+<p class="text-sm text-on-surface-variant mb-2">Decentralizing waste management in Southeast Asia regional hubs could improve social equity score by <span class="font-bold text-on-surface">+12%</span>.</p>
+<button class="text-xs font-bold text-primary hover:underline">View Roadmap →</button>
+</div>
+<!-- Insight 2 -->
+<div class="p-4 bg-tertiary-container/5 border-l-4 border-tertiary rounded-r">
+<div class="flex justify-between items-start mb-1">
+<span class="font-label-md text-label-md font-bold text-tertiary">RISK ALERT</span>
+<span class="text-[10px] text-on-surface-variant">MEDIUM RISK</span>
+</div>
+<p class="text-sm text-on-surface-variant mb-2">Scope 3 emissions from logistics partners in EMEA are projected to exceed Q4 budget by <span class="font-bold text-on-surface">5.4%</span>.</p>
+<button class="text-xs font-bold text-tertiary hover:underline">Audit Suppliers →</button>
+</div>
+<!-- Insight 3 -->
+<div class="p-4 bg-secondary-container/5 border-l-4 border-secondary rounded-r">
+<div class="flex justify-between items-start mb-1">
+<span class="font-label-md text-label-md font-bold text-secondary">BENCHMARK</span>
+<span class="text-[10px] text-on-surface-variant">PEER LEADERSHIP</span>
+</div>
+<p class="text-sm text-on-surface-variant mb-2">Executive compensation ties to ESG targets currently lead the Industry average (Retail Sector).</p>
+<button class="text-xs font-bold text-secondary hover:underline">See Full Comparison →</button>
+</div>
+</div>
+</div>
+<!-- XP / Gamification Element -->
+<div class="bg-inverse-surface text-inverse-on-surface p-6 rounded-xl flex items-center justify-between">
+<div class="flex gap-4 items-center">
+<div class="w-12 h-12 rounded-full border-2 border-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-primary-fixed text-2xl" style="font-variation-settings: 'FILL' 1;">emoji_events</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-surface-variant uppercase tracking-widest">Global ESG XP</p>
+<p class="font-headline-sm text-headline-sm">Elite Steward Level 4</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-label-md text-label-md text-primary-fixed">14,250 / 15,000</p>
+<div class="w-24 h-1.5 bg-white/20 rounded-full mt-1">
+<div class="h-full bg-primary-fixed" style="width: 95%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Peer Benchmarking Section -->
+<div class="mt-gutter grid grid-cols-12 gap-gutter">
+<div class="col-span-12 glass-card p-8">
+<div class="flex justify-between items-center mb-8">
+<div>
+<h4 class="font-headline-sm text-headline-sm">Industry Benchmarking</h4>
+<p class="text-on-surface-variant text-sm">Performance comparison against S&P 500 Energy Sector leaders.</p>
+</div>
+<div class="flex gap-4">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-sm bg-primary"></span>
+<span class="text-xs font-medium">EcoSphere</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-sm bg-surface-container-highest"></span>
+<span class="text-xs font-medium">Industry Avg.</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+<!-- Metric 1 -->
+<div class="space-y-4">
+<p class="font-label-md text-label-md font-bold text-on-surface-variant">Carbon Intensity</p>
+<div class="flex items-end gap-3 h-32">
+<div class="w-full bg-primary transition-all duration-500 hover:opacity-80" style="height: 85%" title="EcoSphere: 14.2"></div>
+<div class="w-full bg-surface-container-highest transition-all duration-500 hover:opacity-80" style="height: 60%" title="Industry: 10.1"></div>
+</div>
+<p class="text-xs text-center font-bold text-on-surface">+24% better than peers</p>
+</div>
+<!-- Metric 2 -->
+<div class="space-y-4">
+<p class="font-label-md text-label-md font-bold text-on-surface-variant">Water Stewardship</p>
+<div class="flex items-end gap-3 h-32">
+<div class="w-full bg-primary transition-all duration-500" style="height: 70%"></div>
+<div class="w-full bg-surface-container-highest transition-all duration-500" style="height: 75%"></div>
+</div>
+<p class="text-xs text-center font-bold text-error">-5% vs. Industry leaders</p>
+</div>
+<!-- Metric 3 -->
+<div class="space-y-4">
+<p class="font-label-md text-label-md font-bold text-on-surface-variant">Board Independence</p>
+<div class="flex items-end gap-3 h-32">
+<div class="w-full bg-primary transition-all duration-500" style="height: 95%"></div>
+<div class="w-full bg-surface-container-highest transition-all duration-500" style="height: 40%"></div>
+</div>
+<p class="text-xs text-center font-bold text-primary">Tier 1 Leadership</p>
+</div>
+<!-- Metric 4 -->
+<div class="space-y-4">
+<p class="font-label-md text-label-md font-bold text-on-surface-variant">Employee CSR Engagement</p>
+<div class="flex items-end gap-3 h-32">
+<div class="w-full bg-primary transition-all duration-500" style="height: 65%"></div>
+<div class="w-full bg-surface-container-highest transition-all duration-500" style="height: 45%"></div>
+</div>
+<p class="text-xs text-center font-bold text-on-surface">+20% Engagement Delta</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Details -->
+<div class="mt-gutter pt-gutter border-t border-outline-variant flex justify-between items-center text-on-surface-variant">
+<p class="text-xs">Data last synced: <span class="font-bold">Nov 14, 2023 - 09:42 AM GMT</span></p>
+<div class="flex gap-4">
+<a class="text-xs hover:text-primary transition-colors" href="#">Privacy Protocol</a>
+<a class="text-xs hover:text-primary transition-colors" href="#">Compliance Certifications</a>
+<a class="text-xs hover:text-primary transition-colors" href="#">System Health</a>
+</div>
+</div>
+</div>
+</main>
+<script>
+        // Simple micro-interaction for KPI tiles hover
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-2px)';
+                card.style.boxShadow = '0 12px 24px rgba(0,0,0,0.05)';
+                card.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+                card.style.boxShadow = 'none';
+            });
+        });
+
+        // Simulating some dynamic data loading "shimmer" or focus
+        window.addEventListener('load', () => {
+            console.log('EcoSphere Intelligence Engine Loaded');
+        });
+    </script>
+
+<script>
+  // Add listeners to sidebar links inside the iframe to navigate parent wrapper tabs
+  document.querySelectorAll('aside nav a').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const textSpan = link.querySelector('span:last-child');
+      if (textSpan) {
+        const text = textSpan.textContent.trim().toLowerCase();
+        console.log("Iframe navigating parent to:", text);
+        window.parent.postMessage({ type: 'NAVIGATE', target: text }, '*');
+      }
+    });
+  });
+
+  // Intercept logo click
+  const logoDiv = document.querySelector('aside div.flex.items-center.gap-3');
+  if (logoDiv) {
+    logoDiv.style.cursor = 'pointer';
+    logoDiv.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.parent.postMessage({ type: 'NAVIGATE', target: 'environmental' }, '*');
+    });
+  }
+
+  // Intercept buttons to show native alert mockups
+  document.querySelectorAll('button').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const text = btn.textContent.trim().toLowerCase();
+      if (text.includes('export') || text.includes('download')) {
+        e.preventDefault();
+        alert('Exporting audit trail for SEBI BRSR compliance... File download started.');
+      } else if (text.includes('add') || text.includes('create')) {
+        e.preventDefault();
+        window.parent.postMessage({ type: 'ACTION', action: 'add-transaction' }, '*');
+      } else if (text.includes('boost') || text.includes('engagement')) {
+        e.preventDefault();
+        alert('Activating sustainability campaign. Employee email reminders dispatched!');
+      }
+    });
+  });
+</script>
+</body></html>

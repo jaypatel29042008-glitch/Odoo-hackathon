@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EcoSphere | Governance &amp; Compliance</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#f8f9ff",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-secondary-fixed-variant": "#003ea8",
+                        "tertiary-fixed-dim": "#ffb77d",
+                        "outline": "#6d7a72",
+                        "tertiary": "#8d4b00",
+                        "on-surface": "#121c28",
+                        "primary-fixed": "#85f8c4",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed-dim": "#68dba9",
+                        "secondary": "#0051d5",
+                        "on-surface-variant": "#3d4a42",
+                        "surface-container": "#e5eeff",
+                        "surface-container-highest": "#d9e3f4",
+                        "secondary-container": "#316bf3",
+                        "on-tertiary-fixed-variant": "#6e3900",
+                        "on-secondary-fixed": "#00174b",
+                        "surface": "#f8f9ff",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "surface-container-high": "#dfe9fa",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-surface": "#27313e",
+                        "tertiary-fixed": "#ffdcc3",
+                        "surface-variant": "#d9e3f4",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#dbe1ff",
+                        "surface-tint": "#006c4a",
+                        "surface-bright": "#f8f9ff",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#d1dbec",
+                        "error-container": "#ffdad6",
+                        "outline-variant": "#bccac0",
+                        "secondary-fixed-dim": "#b4c5ff",
+                        "primary": "#006948",
+                        "on-background": "#121c28",
+                        "on-tertiary-container": "#fffbff",
+                        "inverse-primary": "#68dba9",
+                        "on-primary-container": "#f5fff7",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#eef4ff",
+                        "on-tertiary-fixed": "#2f1500",
+                        "tertiary-container": "#b15f00",
+                        "on-primary-fixed": "#002114"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "container-max": "1440px",
+                        "baseline": "4px",
+                        "margin-desktop": "32px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Manrope"],
+                        "headline-sm": ["Manrope"],
+                        "body-sm": ["Inter"],
+                        "headline-md": ["Manrope"],
+                        "label-md": ["JetBrains Mono"],
+                        "display-lg": ["Manrope"],
+                        "body-md": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .compliance-overdue {
+            animation: pulse-danger 2s infinite;
+        }
+        @keyframes pulse-danger {
+            0% { box-shadow: 0 0 0 0 rgba(186, 26, 26, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(186, 26, 26, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(186, 26, 26, 0); }
+        }
+        .sidebar-active {
+            position: relative;
+        }
+        .sidebar-active::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background-color: #006948;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- Side Navigation Shell -->
+<aside class="w-[280px] h-screen fixed left-0 top-0 border-r border-outline-variant bg-background flex flex-col py-gutter px-4 z-50">
+<div class="mb-12 flex items-center gap-3 px-4">
+<div class="w-10 h-10 bg-primary-container rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container" style="font-variation-settings: 'FILL' 1">eco</span>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-extrabold text-primary">EcoSphere</h1>
+<p class="font-label-md text-label-md text-on-surface-variant">ESG Management</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<!-- Nav Items based on JSON -->
+<a class="flex items-center gap-3 px-4 py-3 rounded text-on-surface-variant font-medium hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">eco</span>
+<span class="font-label-md text-label-md">Environmental</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded text-on-surface-variant font-medium hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="font-label-md text-label-md">Social</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded text-primary font-bold bg-primary-container/10 sidebar-active transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">gavel</span>
+<span class="font-label-md text-label-md">Governance</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded text-on-surface-variant font-medium hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">military_tech</span>
+<span class="font-label-md text-label-md">Challenges</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded text-on-surface-variant font-medium hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">bar_chart</span>
+<span class="font-label-md text-label-md">Reports</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded text-on-surface-variant font-medium hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</nav>
+<div class="mt-auto border-t border-outline-variant pt-6 px-4 space-y-1">
+<a class="flex items-center gap-3 py-2 text-on-surface-variant font-medium hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-label-md text-label-md">Help Center</span>
+</a>
+<a class="flex items-center gap-3 py-2 text-on-surface-variant font-medium hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-md text-label-md">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Wrapper -->
+<main class="ml-[280px] min-h-screen flex flex-col">
+<!-- Top App Bar -->
+<header class="h-16 w-full sticky top-0 z-40 bg-surface-container-lowest border-b border-outline-variant flex items-center justify-between px-gutter">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-96">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full h-10 pl-10 pr-4 bg-background border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary focus:outline-none font-body-sm" placeholder="Search governance docs..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-colors rounded-full">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="flex items-center gap-3 pl-4 border-l border-outline-variant">
+<div class="text-right">
+<p class="font-body-sm font-semibold">Sarah Jenkins</p>
+<p class="text-[10px] uppercase tracking-wider text-on-surface-variant font-label-md">Chief Compliance Officer</p>
+</div>
+<img class="w-10 h-10 rounded-full border-2 border-primary object-cover" data-alt="Professional headshot of a female executive in a modern office, soft natural lighting, high resolution, corporate clean aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuChiNLbNr50ogg6V8cWaetLzLtXtzpYDmtAXstSSPK_miKlYnNjmdpbBZzKgDJ8XFixdIMtL7QaK1xZT237qHJYKk9bkVvvOD9YJKUkP9HdvsBCAJNYt3eP7Plm25LderuCRJksXjN_2Z8w_wAVNgsxc0ozXU-q2RemYGqzRoW202IRXZbiHmar01S9OTSg5WsJyrvoCO-KIanzs3db_d_AELnjiEzRYBrN7IhHn1EbUV56EKLPyIh150Re5MkMkIjyX9Js1Y9MfOtX"/>
+</div>
+</div>
+</header>
+<!-- Content Canvas -->
+<div class="p-gutter space-y-8 flex-1 max-w-container-max mx-auto w-full">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<nav class="flex items-center gap-2 mb-2 text-on-surface-variant">
+<span class="font-label-md text-label-md uppercase">Master Configuration</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="font-label-md text-label-md uppercase text-primary">Governance</span>
+</nav>
+<h2 class="font-headline-lg text-headline-lg">Governance &amp; Compliance</h2>
+</div>
+<div class="flex gap-3">
+<button class="px-4 py-2 border border-primary text-primary font-semibold rounded hover:bg-primary/5 transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined">upload_file</span>
+                        Add Proof
+                    </button>
+<button class="px-6 py-2 bg-primary text-on-primary font-semibold rounded hover:brightness-110 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined">add</span>
+                        New Audit
+                    </button>
+</div>
+</div>
+<!-- Bento Grid Stats -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Master Flow Visualization -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container-lowest border border-outline-variant rounded-xl p-6 relative overflow-hidden">
+<div class="flex justify-between items-center mb-8">
+<h3 class="font-headline-sm text-headline-sm">Business Workflow Logic</h3>
+<span class="px-3 py-1 bg-primary-container text-on-primary-container font-label-md text-label-md rounded-full">LIVE ARCHITECTURE</span>
+</div>
+<div class="flex flex-col items-center space-y-4">
+<div class="w-full flex flex-wrap justify-center gap-4">
+<div class="px-6 py-3 border border-primary bg-primary/5 rounded-lg flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">settings_suggest</span>
+<span class="font-label-md text-label-md">Master Configuration</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant">south</span>
+<div class="w-full grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="p-3 bg-background border border-outline-variant rounded text-center">
+<p class="font-label-md text-label-md uppercase opacity-60 mb-1">Module</p>
+<p class="font-body-sm font-bold">Departments</p>
+</div>
+<div class="p-3 bg-background border border-outline-variant rounded text-center">
+<p class="font-label-md text-label-md uppercase opacity-60 mb-1">Logic</p>
+<p class="font-body-sm font-bold">Emissions Factors</p>
+</div>
+<div class="p-3 bg-background border border-outline-variant rounded text-center">
+<p class="font-label-md text-label-md uppercase opacity-60 mb-1">Standard</p>
+<p class="font-body-sm font-bold">ESG Policies</p>
+</div>
+<div class="p-3 bg-background border border-outline-variant rounded text-center">
+<p class="font-label-md text-label-md uppercase opacity-60 mb-1">Engagement</p>
+<p class="font-body-sm font-bold">Challenges</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant">south</span>
+<div class="w-full max-w-md p-4 bg-primary text-on-primary rounded-lg text-center shadow-lg">
+<p class="font-headline-sm text-headline-sm">Carbon Transactions</p>
+<p class="font-label-md opacity-80 mt-1">CORE DATA PROCESSING UNIT</p>
+</div>
+</div>
+</div>
+<!-- XP / Gamification Card -->
+<div class="col-span-12 lg:col-span-4 bg-inverse-surface text-inverse-on-surface rounded-xl p-6 flex flex-col justify-between relative overflow-hidden">
+
+<div class="relative z-10">
+<div class="flex justify-between items-start mb-6">
+<h3 class="font-headline-sm text-headline-sm">Governance Health</h3>
+<div class="px-3 py-1 bg-tertiary-fixed text-on-tertiary-fixed rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">emoji_events</span>
+<span class="font-label-md text-label-md">Top 5%</span>
+</div>
+</div>
+<div class="mb-6">
+<p class="font-label-md text-label-md uppercase tracking-widest text-surface-variant mb-2">Platform XP Gained</p>
+<p class="text-[48px] font-bold leading-none">12,450 <span class="text-primary-fixed-dim text-[20px]">XP</span></p>
+</div>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between font-label-md text-label-md mb-2">
+<span>NEXT BADGE: ETHICAL LEADER</span>
+<span>85%</span>
+</div>
+<div class="h-2 w-full bg-white/10 rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary-fixed to-primary w-[85%]"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Interactive Area: Audits & Issues -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Compliance Issues Module -->
+<div class="lg:col-span-2 bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden flex flex-col">
+<div class="p-6 border-b border-outline-variant flex justify-between items-center">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-error">warning</span>
+<h3 class="font-headline-sm text-headline-sm">Active Compliance Issues</h3>
+</div>
+<select class="bg-transparent border-none font-label-md text-label-md text-on-surface-variant focus:ring-0">
+<option>All Ownership</option>
+<option>Past Due Only</option>
+</select>
+</div>
+<div class="flex-1 overflow-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">
+<th class="px-6 py-3 border-b border-outline-variant">Issue / Model</th>
+<th class="px-6 py-3 border-b border-outline-variant">Owner</th>
+<th class="px-6 py-3 border-b border-outline-variant">Due Date</th>
+<th class="px-6 py-3 border-b border-outline-variant text-right">Severity</th>
+</tr>
+</thead>
+<tbody class="font-body-sm">
+<tr class="hover:bg-surface-container-low/50 transition-colors border-b border-outline-variant compliance-overdue">
+<td class="px-6 py-4">
+<div class="font-bold">Missing Emission Factor Proof</div>
+<div class="text-[12px] text-on-surface-variant">Model: Carbon Transaction</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-secondary text-[10px] flex items-center justify-center text-white font-bold">MK</div>
+<span>Michael K.</span>
+</div>
+</td>
+<td class="px-6 py-4 text-error font-bold">
+                                        Oct 12, 2023
+                                    </td>
+<td class="px-6 py-4 text-right">
+<span class="px-2 py-0.5 bg-error-container text-on-error-container rounded text-[10px] font-bold">CRITICAL</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/50 transition-colors border-b border-outline-variant">
+<td class="px-6 py-4">
+<div class="font-bold">CSR Activity Verification</div>
+<div class="text-[12px] text-on-surface-variant">Model: Employee Participation</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-primary text-[10px] flex items-center justify-center text-white font-bold">LL</div>
+<span>Laura L.</span>
+</div>
+</td>
+<td class="px-6 py-4">
+                                        Nov 28, 2023
+                                    </td>
+<td class="px-6 py-4 text-right">
+<span class="px-2 py-0.5 bg-surface-container-highest text-on-surface-variant rounded text-[10px] font-bold">MEDIUM</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-6 py-4">
+<div class="font-bold">Audit Trail Discrepancy</div>
+<div class="text-[12px] text-on-surface-variant">Model: Governance Audit</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-tertiary text-[10px] flex items-center justify-center text-white font-bold">SJ</div>
+<span>Sarah J.</span>
+</div>
+</td>
+<td class="px-6 py-4">
+                                        Dec 05, 2023
+                                    </td>
+<td class="px-6 py-4 text-right">
+<span class="px-2 py-0.5 bg-error-container text-on-error-container rounded text-[10px] font-bold">HIGH</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Policy Acknowledgement Section -->
+<div class="lg:col-span-1 flex flex-col gap-6">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6">
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-headline-sm text-headline-sm">Policy Reach</h3>
+<span class="material-symbols-outlined text-primary">verified_user</span>
+</div>
+<div class="flex items-center justify-center py-4">
+<div class="relative w-32 h-32">
+<svg class="w-full h-full" viewbox="0 0 36 36">
+<path class="text-surface-container-highest" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3"></path>
+<path class="text-primary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="92, 100" stroke-linecap="round" stroke-width="3"></path>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-headline-sm text-headline-sm leading-none">92%</span>
+<span class="font-label-md text-[10px] opacity-60">SIGNED</span>
+</div>
+</div>
+</div>
+<ul class="mt-6 space-y-4 font-body-sm">
+<li class="flex items-center justify-between">
+<span class="text-on-surface-variant">Code of Ethics</span>
+<span class="font-bold text-primary">98%</span>
+</li>
+<li class="flex items-center justify-between">
+<span class="text-on-surface-variant">Carbon Neutrality Mandate</span>
+<span class="font-bold text-primary">84%</span>
+</li>
+<li class="flex items-center justify-between">
+<span class="text-on-surface-variant">Supplier ESG Policy</span>
+<span class="font-bold text-secondary">Pending Audits</span>
+</li>
+</ul>
+</div>
+<!-- Decorative Asset Card -->
+<div class="flex-1 bg-primary-container rounded-xl overflow-hidden relative min-h-[200px]">
+<img class="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-60" data-alt="A macro close-up of a lush green leaf with complex vein structures, morning dew drops shimmering like diamonds, soft focus background, symbol of life and data complexity, high fashion editorial photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOYvQzS2H32Kh3y24BTyZtY1QH2ZN6-mKJqTbjkliRav72rGCVFI_NRV9zQEkVKcmtJDsu_ins439QhDq9ULfRFdrTx4DPH4O_MZv1QgXARdOlLx8yGQRIgwzhrNYOK3gnEFIWHQEEiGbuEZACG3TpLUOTTRofFo7rVS0ancjB4mBC76oqGAXcDc_Pd5J4fS6CE0Q52FAOc_FZGDNKnHTlYpGdYDnUG2_J6_0q4xoDij62c5ms0vfe6hoOaorZs46GEfeIALvs1_1I"/>
+<div class="absolute inset-0 p-6 flex flex-col justify-end text-on-primary-container">
+<h4 class="font-headline-sm text-headline-sm">ESG Impact Insight</h4>
+<p class="font-body-sm mt-2 opacity-90">Every transaction processed through EcoSphere's governance engine is cross-verified with 14 global standards.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Audit Trail Table -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+<div class="p-6 border-b border-outline-variant flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+<div>
+<h3 class="font-headline-sm text-headline-sm">Governance Audits</h3>
+<p class="font-body-sm text-on-surface-variant">Quarterly performance and compliance reviews.</p>
+</div>
+<div class="flex items-center bg-background border border-outline-variant rounded-lg p-1">
+<button class="px-3 py-1.5 bg-surface-container-highest rounded font-label-md text-label-md shadow-sm">ACTIVE</button>
+<button class="px-3 py-1.5 rounded font-label-md text-label-md text-on-surface-variant hover:text-primary">ARCHIVED</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">
+<th class="px-6 py-4">Audit ID</th>
+<th class="px-6 py-4">Title / Purpose</th>
+<th class="px-6 py-4">Date Range</th>
+<th class="px-6 py-4">Status</th>
+<th class="px-6 py-4 text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="font-body-sm">
+<tr class="border-b border-outline-variant hover:bg-primary/5 group transition-colors">
+<td class="px-6 py-4">
+<span class="font-label-md bg-secondary-fixed text-on-secondary-fixed px-2 py-1 rounded">AUD-2409</span>
+</td>
+<td class="px-6 py-4">
+<div class="font-bold">Q3 Carbon Accounting Verification</div>
+<div class="text-[12px] text-on-surface-variant">Reviewing scope 1 and 2 emissions from EMEA region.</div>
+</td>
+<td class="px-6 py-4 text-on-surface-variant">
+                                    Jul 01 - Sep 30
+                                </td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+<span class="font-semibold text-primary">In Progress</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="p-2 rounded hover:bg-surface-container-high transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</td>
+</tr>
+<tr class="border-b border-outline-variant hover:bg-primary/5 group transition-colors">
+<td class="px-6 py-4">
+<span class="font-label-md bg-secondary-fixed text-on-secondary-fixed px-2 py-1 rounded">AUD-2408</span>
+</td>
+<td class="px-6 py-4">
+<div class="font-bold">Social Responsibility Audit</div>
+<div class="text-[12px] text-on-surface-variant">Employee engagement and community impact verification.</div>
+</td>
+<td class="px-6 py-4 text-on-surface-variant">
+                                    Jun 01 - Aug 30
+                                </td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 bg-on-surface-variant rounded-full"></div>
+<span class="font-semibold text-on-surface-variant">Draft</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="p-2 rounded hover:bg-surface-container-high transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</td>
+</tr>
+<tr class="border-b border-outline-variant hover:bg-primary/5 group transition-colors">
+<td class="px-6 py-4">
+<span class="font-label-md bg-secondary-fixed text-on-secondary-fixed px-2 py-1 rounded">AUD-2407</span>
+</td>
+<td class="px-6 py-4">
+<div class="font-bold">Board Governance Review</div>
+<div class="text-[12px] text-on-surface-variant">Policy adherence and executive decision trail audit.</div>
+</td>
+<td class="px-6 py-4 text-on-surface-variant">
+                                    Jan 01 - Jun 30
+                                </td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2 text-on-secondary-fixed-variant">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+<span class="font-semibold">Completed</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="p-2 rounded hover:bg-surface-container-high transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Bottom Contextual Image & CTA -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6 pb-gutter">
+<div class="lg:col-span-2 bg-background border-2 border-dashed border-outline-variant rounded-xl p-8 flex flex-col items-center justify-center text-center space-y-4">
+<div class="w-16 h-16 bg-surface-container rounded-full flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-primary text-[32px]">shield_with_heart</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm">Audit Preparedness</h4>
+<p class="max-w-md text-on-surface-variant font-body-sm">Your organization currently meets 94% of the readiness criteria for external certification. Resolve the outstanding compliance issues to reach 100%.</p>
+<button class="px-6 py-2 bg-inverse-surface text-inverse-on-surface font-semibold rounded hover:bg-on-surface transition-all">Download Audit Prep Report</button>
+</div>
+<div class="lg:col-span-1 rounded-xl overflow-hidden shadow-lg border border-outline-variant">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnE5stI9MU4IwTTNF6PjzmDZRHNTzwvLmcJFo-HZsaYR_Hn8MAAepeTbpGdZsFyHJfMzt3C0XFYQcCQQXlTBOoOQQNSU04MDlk0YiEUU9r2FAuHFl79yZnc2RfHXonnaMgxkl7dcqdGuhzL30AQbLbsT5AOGq4VasL41K91_23j_CraloF7_Dny4jDo3mc9rmIInwOaZTGf-6C65RXsDM2l8ZRZng4ivfAK7bZ9bdCjzTEZvvwNKta8DISONBnD-DqtjKVOZi3-Cw9"/>
+</div>
+</div>
+</div>
+<!-- System Status Footer -->
+<footer class="mt-auto h-12 bg-surface-container-low border-t border-outline-variant flex items-center justify-between px-gutter">
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<span class="font-label-md text-[10px] uppercase opacity-60">System Synchronized</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-md text-[10px] uppercase opacity-60">Last Audit:</span>
+<span class="font-label-md text-[10px] font-bold">12 MINUTES AGO</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="font-label-md text-[10px] uppercase opacity-60">Compliance Score: 890 / 1000</span>
+<div class="w-24 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[89%]"></div>
+</div>
+</div>
+</footer>
+</main>
+<!-- FAB (Suppressed as per rules on Detail screens, but adding micro-interaction JS example) -->
+<script>
+        // Micro-interaction for hover states on compliance items
+        document.querySelectorAll('tr.compliance-overdue').forEach(row => {
+            row.addEventListener('mouseenter', () => {
+                row.classList.remove('compliance-overdue');
+                row.style.boxShadow = 'inset 4px 0 0 #ba1a1a';
+            });
+            row.addEventListener('mouseleave', () => {
+                row.classList.add('compliance-overdue');
+                row.style.boxShadow = 'none';
+            });
+        });
+
+        // Search Bar active state
+        const searchInput = document.querySelector('input[type="text"]');
+        searchInput.addEventListener('focus', () => {
+            searchInput.parentElement.classList.add('ring-primary');
+        });
+        searchInput.addEventListener('blur', () => {
+            searchInput.parentElement.classList.remove('ring-primary');
+        });
+    </script>
+
+<script>
+  // Add listeners to sidebar links inside the iframe to navigate parent wrapper tabs
+  document.querySelectorAll('aside nav a').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const textSpan = link.querySelector('span:last-child');
+      if (textSpan) {
+        const text = textSpan.textContent.trim().toLowerCase();
+        console.log("Iframe navigating parent to:", text);
+        window.parent.postMessage({ type: 'NAVIGATE', target: text }, '*');
+      }
+    });
+  });
+
+  // Intercept logo click
+  const logoDiv = document.querySelector('aside div.flex.items-center.gap-3');
+  if (logoDiv) {
+    logoDiv.style.cursor = 'pointer';
+    logoDiv.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.parent.postMessage({ type: 'NAVIGATE', target: 'environmental' }, '*');
+    });
+  }
+
+  // Intercept buttons to show native alert mockups
+  document.querySelectorAll('button').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const text = btn.textContent.trim().toLowerCase();
+      if (text.includes('export') || text.includes('download')) {
+        e.preventDefault();
+        alert('Exporting audit trail for SEBI BRSR compliance... File download started.');
+      } else if (text.includes('add') || text.includes('create')) {
+        e.preventDefault();
+        window.parent.postMessage({ type: 'ACTION', action: 'add-transaction' }, '*');
+      } else if (text.includes('boost') || text.includes('engagement')) {
+        e.preventDefault();
+        alert('Activating sustainability campaign. Employee email reminders dispatched!');
+      }
+    });
+  });
+</script>
+</body></html>

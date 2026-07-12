@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Department ESG Rankings | EcoSphere</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&family=JetBrains+Mono:wght@500&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:wght@100..900&family=Manrope:wght@100..900&display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid #E5E7EB;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #006948;
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-fixed-dim": "#ffb77d",
+                      "on-tertiary-container": "#fffbff",
+                      "on-secondary-fixed": "#00174b",
+                      "background": "#f8f9ff",
+                      "primary-fixed": "#85f8c4",
+                      "surface-container-highest": "#d9e3f4",
+                      "secondary": "#0051d5",
+                      "outline-variant": "#bccac0",
+                      "on-secondary-container": "#fefcff",
+                      "on-secondary": "#ffffff",
+                      "surface-container-low": "#eef4ff",
+                      "on-tertiary-fixed-variant": "#6e3900",
+                      "on-surface-variant": "#3d4a42",
+                      "on-error": "#ffffff",
+                      "outline": "#6d7a72",
+                      "surface-container-lowest": "#ffffff",
+                      "on-background": "#121c28",
+                      "secondary-fixed": "#dbe1ff",
+                      "surface-container-high": "#dfe9fa",
+                      "inverse-on-surface": "#eaf1ff",
+                      "surface-tint": "#006c4a",
+                      "inverse-surface": "#27313e",
+                      "surface-variant": "#d9e3f4",
+                      "on-tertiary": "#ffffff",
+                      "surface-dim": "#d1dbec",
+                      "primary-fixed-dim": "#68dba9",
+                      "secondary-container": "#316bf3",
+                      "on-primary-fixed-variant": "#005137",
+                      "inverse-primary": "#68dba9",
+                      "on-surface": "#121c28",
+                      "surface-container": "#e5eeff",
+                      "tertiary-container": "#b15f00",
+                      "surface-bright": "#f8f9ff",
+                      "on-error-container": "#93000a",
+                      "on-secondary-fixed-variant": "#003ea8",
+                      "error": "#ba1a1a",
+                      "on-tertiary-fixed": "#2f1500",
+                      "error-container": "#ffdad6",
+                      "primary-container": "#00855d",
+                      "primary": "#006948",
+                      "tertiary-fixed": "#ffdcc3",
+                      "on-primary-fixed": "#002114",
+                      "on-primary-container": "#f5fff7",
+                      "on-primary": "#ffffff",
+                      "tertiary": "#8d4b00",
+                      "surface": "#f8f9ff",
+                      "secondary-fixed-dim": "#b4c5ff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "margin-mobile": "16px",
+                      "baseline": "4px",
+                      "gutter": "24px",
+                      "margin-desktop": "32px",
+                      "container-max": "1440px"
+              },
+              "fontFamily": {
+                      "headline-lg-mobile": ["Manrope"],
+                      "body-lg": ["Inter"],
+                      "body-md": ["Inter"],
+                      "headline-md": ["Manrope"],
+                      "headline-lg": ["Manrope"],
+                      "body-sm": ["Inter"],
+                      "label-md": ["JetBrains Mono"],
+                      "headline-sm": ["Manrope"],
+                      "display-lg": ["Manrope"]
+              },
+              "fontSize": {
+                      "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                      "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-background font-body-md text-on-background min-h-screen">
+<!-- SideNavBar (from JSON Authority) -->
+<aside class="w-[280px] h-screen fixed left-0 top-0 bg-background border-r border-outline-variant flex flex-col h-full py-6 px-4 z-50">
+<div class="flex items-center gap-3 px-2 mb-10">
+<div class="w-10 h-10 bg-primary-container rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container" style="font-variation-settings: 'FILL' 1;">eco</span>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-extrabold text-primary">EcoSphere</h1>
+<p class="font-label-md text-label-md text-outline uppercase tracking-wider">ESG Management</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<!-- Navigation Items Mapping -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg transition-colors duration-200 text-on-surface-variant font-medium hover:text-primary hover:bg-surface-container-high" href="#">
+<span class="material-symbols-outlined">eco</span>
+<span class="font-label-md text-label-md">Environmental</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg transition-colors duration-200 text-on-surface-variant font-medium hover:text-primary hover:bg-surface-container-high" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="font-label-md text-label-md">Social</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg transition-colors duration-200 text-on-surface-variant font-medium hover:text-primary hover:bg-surface-container-high" href="#">
+<span class="material-symbols-outlined">gavel</span>
+<span class="font-label-md text-label-md">Governance</span>
+</a>
+<!-- Challenges is Active based on "Rankings/Competition" intent -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg transition-transform text-primary font-bold border-r-4 border-primary bg-primary-container/10 scale-[0.98]" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+<span class="font-label-md text-label-md">Challenges</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg transition-colors duration-200 text-on-surface-variant font-medium hover:text-primary hover:bg-surface-container-high" href="#">
+<span class="material-symbols-outlined">bar_chart</span>
+<span class="font-label-md text-label-md">Reports</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg transition-colors duration-200 text-on-surface-variant font-medium hover:text-primary hover:bg-surface-container-high" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-outline-variant space-y-1">
+<button class="w-full flex items-center justify-center gap-2 bg-primary text-on-primary py-3 px-4 rounded-xl font-bold mb-6 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined">add</span>
+<span class="font-label-md text-label-md">Add Transaction</span>
+</button>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-label-md text-label-md">Help Center</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-md text-label-md">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-[280px] min-h-screen flex flex-col">
+<!-- TopAppBar (from JSON Authority) -->
+<header class="h-16 w-full sticky top-0 z-40 bg-surface-container-lowest border-b border-outline-variant flex items-center justify-between px-8">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-96 max-w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-full py-2 pl-10 pr-4 text-body-sm focus:ring-2 focus:ring-primary" placeholder="Search department data..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="relative hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-outline">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<div class="flex items-center gap-3 border-l border-outline-variant pl-6">
+<div class="text-right">
+<p class="font-headline-sm text-sm font-bold text-on-surface">Alex Rivera</p>
+<p class="font-label-md text-[10px] text-outline uppercase tracking-tighter">Sustainability Lead</p>
+</div>
+<img class="w-10 h-10 rounded-full border-2 border-primary-fixed bg-surface-container" data-alt="Professional studio portrait of a corporate sustainability officer, late 30s, warm lighting, neutral gray background. The subject is wearing a crisp white shirt and navy blazer, conveying a sense of authoritative yet approachable leadership. Clean, minimalist aesthetic with high contrast and sharp focus on eyes." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDn01XnZ-hRAawmfTbc1tHr6GHPAd7ZSAqy_YB0wIfHQE2WxlM5oXfSjxcL7b74_uBaBvpkhrobEzpi2b-oF9Etb8QdCDFKu4pJsvqWBy-km_kKWmSfXmnF6LnQDWEPdT5bSOESJJbVvObksivLGiLM-JgBbyQccqOaz-1bu68Phid36DCe9czGKEWN4wzhEjx86Tql88XkGW-0EsSPf87O4FavtiLTlV7uZGR1eiiAo_fRYlHUNiCahPL5cWEhjBQEFnvoX5wjv3MT"/>
+</div>
+</div>
+</header>
+<!-- Dashboard Content -->
+<div class="p-8 max-w-container-max mx-auto w-full">
+<div class="flex justify-between items-end mb-8">
+<div>
+<span class="font-label-md text-label-md text-primary font-bold uppercase tracking-widest">Global ESG Benchmarking</span>
+<h2 class="font-display-lg text-display-lg text-on-surface mt-1">Department Rankings</h2>
+</div>
+<div class="flex gap-3">
+<button class="px-4 py-2 border border-outline-variant rounded-lg font-label-md text-label-md flex items-center gap-2 hover:bg-surface-container">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+                        Q3 2023
+                    </button>
+<button class="px-4 py-2 bg-secondary text-on-secondary rounded-lg font-label-md text-label-md flex items-center gap-2 shadow-lg">
+<span class="material-symbols-outlined text-sm">download</span>
+                        Export PDF
+                    </button>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Main Rankings Table -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden">
+<div class="p-6 border-b border-outline-variant flex justify-between items-center">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Leaderboard Performance</h3>
+<div class="flex gap-4">
+<div class="flex items-center gap-1">
+<span class="w-3 h-3 rounded-full bg-primary"></span>
+<span class="text-[10px] font-label-md">Environmental</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="w-3 h-3 rounded-full bg-secondary"></span>
+<span class="text-[10px] font-label-md">Social</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="w-3 h-3 rounded-full bg-tertiary-container"></span>
+<span class="text-[10px] font-label-md">Governance</span>
+</div>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-surface-container-low">
+<tr>
+<th class="px-6 py-4 font-label-md text-label-md text-outline uppercase">Rank</th>
+<th class="px-6 py-4 font-label-md text-label-md text-outline uppercase">Department</th>
+<th class="px-6 py-4 font-label-md text-label-md text-outline uppercase">ESG Score</th>
+<th class="px-6 py-4 font-label-md text-label-md text-outline uppercase">Distribution</th>
+<th class="px-6 py-4 font-label-md text-label-md text-outline uppercase">Trend</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<!-- Manufacturing -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-6 py-5">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold">1</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">factory</span>
+<span class="font-bold text-on-surface">Manufacturing</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="font-label-md text-lg font-bold text-primary">94.2</span>
+</td>
+<td class="px-6 py-5">
+<div class="w-32 h-2 rounded-full overflow-hidden flex bg-surface-variant">
+<div class="h-full bg-primary" style="width: 45%"></div>
+<div class="h-full bg-secondary" style="width: 30%"></div>
+<div class="h-full bg-tertiary-container" style="width: 25%"></div>
+</div>
+</td>
+<td class="px-6 py-5 text-primary flex items-center gap-1">
+<span class="material-symbols-outlined">trending_up</span>
+<span class="text-sm font-bold">+2.4%</span>
+</td>
+</tr>
+<!-- R&D -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-6 py-5">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface flex items-center justify-center font-bold">2</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">biotech</span>
+<span class="font-bold text-on-surface">R&D</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="font-label-md text-lg font-bold text-on-surface">88.7</span>
+</td>
+<td class="px-6 py-5">
+<div class="w-32 h-2 rounded-full overflow-hidden flex bg-surface-variant">
+<div class="h-full bg-primary" style="width: 30%"></div>
+<div class="h-full bg-secondary" style="width: 50%"></div>
+<div class="h-full bg-tertiary-container" style="width: 20%"></div>
+</div>
+</td>
+<td class="px-6 py-5 text-primary flex items-center gap-1">
+<span class="material-symbols-outlined">trending_up</span>
+<span class="text-sm font-bold">+0.8%</span>
+</td>
+</tr>
+<!-- Logistics -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-6 py-5">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface flex items-center justify-center font-bold">3</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline">local_shipping</span>
+<span class="font-bold text-on-surface">Logistics</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="font-label-md text-lg font-bold text-on-surface">76.4</span>
+</td>
+<td class="px-6 py-5">
+<div class="w-32 h-2 rounded-full overflow-hidden flex bg-surface-variant">
+<div class="h-full bg-primary" style="width: 60%"></div>
+<div class="h-full bg-secondary" style="width: 20%"></div>
+<div class="h-full bg-tertiary-container" style="width: 20%"></div>
+</div>
+</td>
+<td class="px-6 py-5 text-error flex items-center gap-1">
+<span class="material-symbols-outlined">trending_down</span>
+<span class="text-sm font-bold">-1.2%</span>
+</td>
+</tr>
+<!-- Sales -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-6 py-5">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface flex items-center justify-center font-bold">4</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline">payments</span>
+<span class="font-bold text-on-surface">Sales</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="font-label-md text-lg font-bold text-on-surface">62.1</span>
+</td>
+<td class="px-6 py-5">
+<div class="w-32 h-2 rounded-full overflow-hidden flex bg-surface-variant">
+<div class="h-full bg-primary" style="width: 20%"></div>
+<div class="h-full bg-secondary" style="width: 40%"></div>
+<div class="h-full bg-tertiary-container" style="width: 40%"></div>
+</div>
+</td>
+<td class="px-6 py-5 text-primary flex items-center gap-1">
+<span class="material-symbols-outlined">trending_up</span>
+<span class="text-sm font-bold">+5.1%</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Award Cards -->
+<div class="col-span-12 lg:col-span-4 space-y-gutter">
+<!-- Best Improver Card -->
+<div class="bg-primary text-on-primary p-6 rounded-xl relative overflow-hidden shadow-xl">
+<div class="relative z-10">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm">Best Improver</h4>
+</div>
+<p class="font-label-md text-on-primary/80 uppercase mb-2 tracking-widest">Q3 Spotlight</p>
+<h5 class="font-display-lg text-2xl mb-1">Sales Department</h5>
+<p class="text-on-primary/90 text-sm mb-6 leading-relaxed">Achieved a 15% reduction in flight travel carbon footprint through virtual-first initiative.</p>
+<div class="flex items-center justify-between">
+<div class="px-3 py-1 bg-white/20 rounded-full text-xs font-bold">+520 XP</div>
+<button class="text-sm font-bold underline underline-offset-4">View Case Study</button>
+</div>
+</div>
+<!-- Abstract Background Decoration -->
+<div class="absolute -right-10 -bottom-10 w-40 h-40 bg-white/10 rounded-full blur-3xl"></div>
+</div>
+<!-- Top Social Contributor -->
+<div class="bg-surface-container-lowest border border-outline-variant p-6 rounded-xl shadow-sm">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-10 h-10 bg-secondary/10 text-secondary rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">volunteer_activism</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Top Social</h4>
+</div>
+<div class="flex items-center gap-4 mb-4">
+<div class="flex -space-x-3">
+<img class="w-10 h-10 rounded-full border-2 border-white" data-alt="Close up of a person laughing, natural lighting, bokeh greenery background, high quality documentary style photography, vibrant and warm." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIiSpiR8ipN6JVisCcMTtPWzuXEtgyIlUxxv99fDvQi6Ad04Lc_mXGaYNtQ8BPRj0HjH6imP5K2jxWtmQ1XtYKq72NIzx7hYH-RwLoeatgwP6AvO4yBkwbVJlCyq5U9XX5RqfBoS63RYpzNRU-f-uGxjhIOx8AmIfu4RgqRl0HcPzQ56yU3GBcS386VOCu-gYJL0UGFLqv9_KLVngDUbBn2JVKAb3ahFNrFCbj4X9IEQvSuNfGrd4MXFGf99JwzE3wnG9Ylq1Ybr-l"/>
+<img class="w-10 h-10 rounded-full border-2 border-white" data-alt="Portrait of a smiling professional woman of color in a modern office, soft afternoon light, high key palette, minimalist and clean." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqAtE0xiKkOxrSZAWM66c7JaoZ0QhGcmVargVUJbFz4mG2D08M5joRLN_6yG_zpHmpUGrixN1E5eqiA1euE774MB-TwPCuTw061rxC0_8kP2w5bftGcswtXRTN6h6afaDvYuC6cKXYaaSuZmYSrcrAg5YtyH0C1uPfYfno8bkU6J5h9lQUPDst34zsw8sYyX8e7WicdsLg-djGHzZoY0x0GKL5mUSeG1I6J_FYADtFPKUhq2LMrD4r1ELnd9iryWxq0OKquXIckveu"/>
+<img class="w-10 h-10 rounded-full border-2 border-white" data-alt="Detail of hands planting a sapling in rich soil, morning sunlight, macro photography, focused on texture and earthy colors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2v7lFcdqMit9ryG3Dh_ANov9ueFCzvxnfwpD2agvHCx0v-TXkRETARVFqG5hB2A7sgmXaJ4B6e07npiF5xZnFr6qTChy_f-fbsLBXP6W4k21K-upOJE35L_8NIbbzz1dmdst-eA6jyLEkmiFvP7cRlnDlUpcZOWOgGMDUJRKL-XVHgJXphlH4iGsvhUcaArV6iDWMB7cODQZwRNOe2t6ACfhtV2oX6-2m36Ff88Gg3PISnLdNzDVMYW0SARiM55KeAI__u4Nf9nDl"/>
+<div class="w-10 h-10 rounded-full bg-secondary text-white flex items-center justify-center text-xs font-bold border-2 border-white">+42</div>
+</div>
+<div>
+<p class="font-bold text-on-surface">R&D Team</p>
+<p class="text-xs text-outline">1,240 Volunteer Hours</p>
+</div>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between text-xs">
+<span class="text-outline">Community Impact Target</span>
+<span class="font-bold text-secondary">82%</span>
+</div>
+<div class="h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary" style="width: 82%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Department Goals & Progress -->
+<div class="col-span-12 bg-white border border-outline-variant rounded-xl p-8">
+<div class="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Sustainability Targets</h3>
+<p class="text-outline">Collective progress across all organizational units</p>
+</div>
+<div class="flex items-center gap-6 bg-surface-container-low px-6 py-4 rounded-xl">
+<div class="text-center border-r border-outline-variant pr-6">
+<p class="text-xs font-label-md text-outline uppercase">Active Goals</p>
+<p class="text-2xl font-bold text-primary">12</p>
+</div>
+<div class="text-center border-r border-outline-variant pr-6">
+<p class="text-xs font-label-md text-outline uppercase">Completed</p>
+<p class="text-2xl font-bold text-secondary">08</p>
+</div>
+<div class="text-center">
+<p class="text-xs font-label-md text-outline uppercase">On Track</p>
+<p class="text-2xl font-bold text-tertiary-container">92%</p>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Goal 1 -->
+<div class="p-6 border border-outline-variant rounded-xl hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">cloud_done</span>
+</div>
+<span class="px-3 py-1 bg-primary-fixed text-on-primary-fixed-variant text-[10px] font-bold rounded-full uppercase">On Track</span>
+</div>
+<h5 class="font-bold text-on-surface mb-2">Net Zero Operations</h5>
+<p class="text-sm text-outline mb-6">Reduce Scope 1 & 2 emissions by 30% by end of FY24.</p>
+<div class="relative pt-1">
+<div class="flex items-center justify-between mb-2">
+<div><span class="text-xs font-semibold inline-block text-primary uppercase">Progress</span></div>
+<div class="text-right"><span class="text-xs font-semibold inline-block text-primary">68%</span></div>
+</div>
+<div class="overflow-hidden h-1.5 mb-4 text-xs flex rounded bg-primary-fixed">
+<div class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-primary" style="width:68%"></div>
+</div>
+</div>
+</div>
+<!-- Goal 2 -->
+<div class="p-6 border border-outline-variant rounded-xl hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<div class="w-12 h-12 bg-secondary/10 rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary">diversity_3</span>
+</div>
+<span class="px-3 py-1 bg-secondary-fixed text-on-secondary-fixed-variant text-[10px] font-bold rounded-full uppercase">On Track</span>
+</div>
+<h5 class="font-bold text-on-surface mb-2">Diversity & Inclusion</h5>
+<p class="text-sm text-outline mb-6">Achieve 40% female leadership across all technical departments.</p>
+<div class="relative pt-1">
+<div class="flex items-center justify-between mb-2">
+<div><span class="text-xs font-semibold inline-block text-secondary uppercase">Progress</span></div>
+<div class="text-right"><span class="text-xs font-semibold inline-block text-secondary">42%</span></div>
+</div>
+<div class="overflow-hidden h-1.5 mb-4 text-xs flex rounded bg-secondary-fixed">
+<div class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-secondary" style="width:42%"></div>
+</div>
+</div>
+</div>
+<!-- Goal 3 -->
+<div class="p-6 border border-outline-variant rounded-xl hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<div class="w-12 h-12 bg-tertiary-container/10 rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary-container">policy</span>
+</div>
+<span class="px-3 py-1 bg-tertiary-fixed text-on-tertiary-fixed-variant text-[10px] font-bold rounded-full uppercase">Reviewing</span>
+</div>
+<h5 class="font-bold text-on-surface mb-2">Ethics Training</h5>
+<p class="text-sm text-outline mb-6">100% completion of corporate ethics and anti-corruption modules.</p>
+<div class="relative pt-1">
+<div class="flex items-center justify-between mb-2">
+<div><span class="text-xs font-semibold inline-block text-tertiary-container uppercase">Progress</span></div>
+<div class="text-right"><span class="text-xs font-semibold inline-block text-tertiary-container">89%</span></div>
+</div>
+<div class="overflow-hidden h-1.5 mb-4 text-xs flex rounded bg-tertiary-fixed">
+<div class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-tertiary-container" style="width:89%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Interactive Chart Area - Visual representation of awards & trends -->
+<div class="col-span-12 grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="bg-surface-container-lowest border border-outline-variant p-6 rounded-xl">
+<div class="flex justify-between items-center mb-6">
+<h4 class="font-headline-sm text-headline-sm">Monthly ESG Trend</h4>
+<select class="bg-transparent border-none text-xs font-label-md focus:ring-0 cursor-pointer">
+<option>Overall</option>
+<option>Environmental</option>
+<option>Social</option>
+</select>
+</div>
+<div class="h-64 flex items-end justify-between gap-2 px-2">
+<!-- Simple custom CSS bar chart to represent trends -->
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full bg-surface-container rounded-t-lg transition-all group-hover:bg-primary-fixed" style="height: 40%"></div>
+<span class="text-[10px] font-label-md text-outline">Jan</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full bg-surface-container rounded-t-lg transition-all group-hover:bg-primary-fixed" style="height: 55%"></div>
+<span class="text-[10px] font-label-md text-outline">Feb</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full bg-surface-container rounded-t-lg transition-all group-hover:bg-primary-fixed" style="height: 48%"></div>
+<span class="text-[10px] font-label-md text-outline">Mar</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full bg-primary rounded-t-lg shadow-lg" style="height: 75%"></div>
+<span class="text-[10px] font-label-md text-primary font-bold">Apr</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full bg-surface-container rounded-t-lg transition-all group-hover:bg-primary-fixed" style="height: 62%"></div>
+<span class="text-[10px] font-label-md text-outline">May</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full bg-surface-container rounded-t-lg transition-all group-hover:bg-primary-fixed" style="height: 80%"></div>
+<span class="text-[10px] font-label-md text-outline">Jun</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-6 rounded-xl">
+<h4 class="font-headline-sm text-headline-sm mb-6">Improvement Metrics</h4>
+<div class="space-y-6">
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-lg">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-primary border border-primary/20">
+<span class="material-symbols-outlined">energy_savings_leaf</span>
+</div>
+<div>
+<p class="font-bold text-sm">Renewable Energy Adoption</p>
+<p class="text-xs text-outline">Manufacturing Division</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-primary font-bold">+22%</p>
+<p class="text-[10px] uppercase font-label-md">Vs last year</p>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-lg">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-secondary border border-secondary/20">
+<span class="material-symbols-outlined">recycling</span>
+</div>
+<div>
+<p class="font-bold text-sm">Waste Diverted from Landfill</p>
+<p class="text-xs text-outline">R&D Facilities</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-secondary font-bold">+18%</p>
+<p class="text-[10px] uppercase font-label-md">Vs last year</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<script>
+        // Micro-interaction for hover states and interactive elements
+        document.querySelectorAll('.group').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                // Future expansion for tooltips or specific interactions
+            });
+        });
+        
+        // Simple dark mode toggle logic placeholder if needed
+        // (Though defined in light mode as per prompt)
+    </script>
+
+<script>
+  // Add listeners to sidebar links inside the iframe to navigate parent wrapper tabs
+  document.querySelectorAll('aside nav a').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const textSpan = link.querySelector('span:last-child');
+      if (textSpan) {
+        const text = textSpan.textContent.trim().toLowerCase();
+        console.log("Iframe navigating parent to:", text);
+        window.parent.postMessage({ type: 'NAVIGATE', target: text }, '*');
+      }
+    });
+  });
+
+  // Intercept logo click
+  const logoDiv = document.querySelector('aside div.flex.items-center.gap-3');
+  if (logoDiv) {
+    logoDiv.style.cursor = 'pointer';
+    logoDiv.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.parent.postMessage({ type: 'NAVIGATE', target: 'environmental' }, '*');
+    });
+  }
+
+  // Intercept buttons to show native alert mockups
+  document.querySelectorAll('button').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const text = btn.textContent.trim().toLowerCase();
+      if (text.includes('export') || text.includes('download')) {
+        e.preventDefault();
+        alert('Exporting audit trail for SEBI BRSR compliance... File download started.');
+      } else if (text.includes('add') || text.includes('create')) {
+        e.preventDefault();
+        window.parent.postMessage({ type: 'ACTION', action: 'add-transaction' }, '*');
+      } else if (text.includes('boost') || text.includes('engagement')) {
+        e.preventDefault();
+        alert('Activating sustainability campaign. Employee email reminders dispatched!');
+      }
+    });
+  });
+</script>
+</body></html>
